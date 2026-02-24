@@ -33,6 +33,21 @@
         exit;
     }
 
+    // 5. Si todo está bien, enviar correo
+    /*$destinatario = "jvidartep05@educarex.es";
+    $contenido = "
+    Nombre: $nombre
+    Teléfono: $telefono
+    Correo: $correo
+    Asunto: $asunto
+    Mensaje:
+    $mensaje
+    ";
+
+    $headers = "From: $correo\r\nReply-To: $correo\r\n";
+
+    // Enviar email
+    mail($destinatario, "Formulario web: $asunto", $contenido, $headers);*/
     echo "<h2>Datos recibidos:</h2>";
     echo "Nombre: $nombre<br>";
     echo "Teléfono: $telefono<br>";
