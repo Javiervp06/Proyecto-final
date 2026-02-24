@@ -348,7 +348,6 @@ form {
     margin-right: 10px;
 }
 
-
 .alineacion input{
     width: 40%;
     padding: 8px;
@@ -464,7 +463,7 @@ form {
     width: 15%;
     padding: 10px;
     background-color: #085fe2;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
