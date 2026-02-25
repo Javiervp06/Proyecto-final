@@ -90,8 +90,6 @@
         $errores[] = "El nivel debe estar entre 1 y 7.";
     }
 
-
-
     if (!empty($errores)) {
         foreach ($errores as $error) {
             echo "<p style='color: red;'>$error</p>";
