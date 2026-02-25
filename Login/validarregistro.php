@@ -17,6 +17,7 @@
     $sexo = $_POST["sexo"] ?? "";
     $posicion = $_POST["posicion"] ?? "";
     $nivel = $_POST["nivel"] ?? "";
+    $nivel = str_replace(",", ".", $nivel);
 
     $errores = [];
 
@@ -33,8 +34,8 @@
         $errores[] = "Los apellidos son obligatorios.";
     } else if (!preg_match("/^[a-zA-Z\s]+$/", $apellidos)) {
         $errores[] = "Los apellidos solo pueden contener letras y espacios.";
-    } elseif (strlen($apellidos) < 2 || strlen($apellidos) > 100) {
-        $errores[] = "Los apellidos deben tener entre 2 y 100 caracteres.";
+    } elseif (strlen($apellidos) < 6 || strlen($apellidos) > 100) {
+        $errores[] = "Los apellidos deben tener entre 6 y 100 caracteres.";
     }
 
     if (empty($telefono)) {
@@ -81,11 +82,15 @@
         $errores[] = "La posición es obligatoria.";
     } 
 
-    if (empty($nivel)) {
+    if ($nivel === "") {
         $errores[] = "El nivel es obligatorio.";
-    } else if ($nivel < 1 || $nivel > 7) {
+    } elseif (!is_numeric($nivel)) {
+        $errores[] = "El nivel debe ser un número válido.";
+    } elseif ($nivel < 1 || $nivel > 7) {
         $errores[] = "El nivel debe estar entre 1 y 7.";
     }
+
+
 
     if (!empty($errores)) {
         foreach ($errores as $error) {
