@@ -1,42 +1,8 @@
 <?php
-// Inicializar variables
-$nombre = $_POST["nombre"] ?? "";
-$telefono = $_POST["telefono"] ?? "";
-$correo = $_POST["correo"] ?? "";
-$mensaje = $_POST["mensaje"] ?? "";
-$errores = [];
-$mensaje_exito = "";
-
-// Procesar solo si se envió el formulario
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    // Validar nombre
-    if ($nombre === "") {
-        $errores[] = "El nombre es obligatorio.";
-    } elseif (strlen($nombre) < 3 || strlen($nombre) > 20) {
-        $errores[] = "El nombre debe tener entre 3 y 20 caracteres.";
-    }
-
-    // Validar teléfono
-    if (!preg_match("/^[0-9]{9}$/", $telefono)) {
-        $errores[] = "El teléfono debe tener 9 números.";
-    }
-
-    // Validar correo
-    if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-        $errores[] = "El correo electrónico no es válido.";
-    }
-
-    // Validar mensaje
-    if ($mensaje === "") {
-        $errores[] = "Los datos de interés son obligatorios.";
-    }
-
-    // Si no hay errores → éxito
-    if (empty($errores)) {
-        $mensaje_exito = "Formulario enviado correctamente. Gracias por inscribirte, $nombre.";
-    }
-}
+session_start();
+$errores = $_SESSION["errores"] ?? [];
+$old = $_SESSION["old"] ?? [];
+session_unset();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -66,25 +32,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <a href="../Jugadores/jugadores.html">Ranking de jugadores</a>
             <a href="../Clases/clases.php" class="activo">Clases</a>
             <a href="../Información/informacion.html">Información</a>
-            <a href="../Login/login.php">Inicio de sesión</a>
+            <a href="../Login/login.html">Inicio de sesión</a>
         </div>
     </div>
 
     <div id="recuadro">
         <div id="clases">
             <h1 class="pa">Clases de Padel</h1>
-            <p>En PadelOrgaz ofrecemos clases de pádel para todos los niveles...</p>
+            <p>En PadelOrgaz ofrecemos clases de pádel para todos los niveles, desde principiantes hasta jugadores avanzados.</p>
 
             <h2 class="pa">Niveles de Clases</h2>
             <ul>
-                <li><strong>Principiantes:</strong> Aprende los fundamentos...</li>
-                <li><strong>Intermedios:</strong> Mejora tus habilidades...</li>
-                <li><strong>Avanzados:</strong> Perfecciona tu juego...</li>
-                <li><strong>Menores:</strong> Clases para niños y adolescentes...</li>
+                <li><strong>Principiantes:</strong> Aprende los fundamentos del pádel.</li>
+                <li><strong>Intermedios:</strong> Mejora tus habilidades con técnicas avanzadas.</li>
+                <li><strong>Avanzados:</strong> Perfecciona tu juego con estrategias competitivas.</li>
+                <li><strong>Menores:</strong> Clases para niños y adolescentes (máx. 16 años).</li>
             </ul>
 
             <h2 class="pa">Horarios y Precios</h2>
-            <p>⏰ Clases en horarios flexibles...</p>
+            <p>⏰ Clases en horarios flexibles, máximo 4 personas por grupo.</p>
 
             <h2 class="pa">Inscripción</h2>
             <p>Rellena el siguiente formulario para reservar tu primera clase.</p>
@@ -93,43 +59,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div id="formclases">
             <h3>Formulario de inscripción para Clases de Padel</h3>
 
-            <!-- Mostrar errores -->
-            <?php if (!empty($errores)): ?>
-                <div style="color: red; margin-bottom: 15px;">
-                    <?php foreach ($errores as $error): ?>
-                        <p><?= $error ?></p>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
+            <form action="procesar_clases.php" method="post">
 
-            <!-- Mostrar mensaje de éxito -->
-            <?php if ($mensaje_exito): ?>
-                <div style="color: green; margin-bottom: 15px;">
-                    <p><?= $mensaje_exito ?></p>
-                </div>
-            <?php endif; ?>
-
-            <form action="" method="post">
-
+                <!-- NOMBRE -->
                 <div class="fila">
-                    <label for="nombre"><div class="asterisco">*</div> Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($nombre) ?>">
+                    <label for="nombre">
+                        <div class="asterisco">*</div> Nombre:
+                    </label>
+                    <input type="text" id="nombre" name="nombre" value="<?= $old['nombre'] ?? '' ?>">
                 </div>
+                <?php if (isset($errores['nombre'])): ?>
+                    <p style="color:red;"><?= $errores['nombre'] ?></p>
+                <?php endif; ?>
 
+                <!-- TELEFONO -->
                 <div class="fila">
-                    <label for="telefono"><div class="asterisco">*</div> Teléfono:</label>
-                    <input type="number" id="telefono" name="telefono" value="<?= htmlspecialchars($telefono) ?>">
+                    <label for="telefono">
+                        <div class="asterisco">*</div> Teléfono:
+                    </label>
+                    <input type="number" id="telefono" name="telefono" value="<?= $old['telefono'] ?? '' ?>">
                 </div>
+                <?php if (isset($errores['telefono'])): ?>
+                    <p style="color:red;"><?= $errores['telefono'] ?></p>
+                <?php endif; ?>
 
+                <!-- CORREO -->
                 <div class="fila">
-                    <label for="correo"><div class="asterisco">*</div> Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" value="<?= htmlspecialchars($correo) ?>">
+                    <label for="correo">
+                        <div class="asterisco">*</div> Correo electrónico:
+                    </label>
+                    <input type="email" id="correo" name="correo" value="<?= $old['correo'] ?? '' ?>">
                 </div>
+                <?php if (isset($errores['correo'])): ?>
+                    <p style="color:red;"><?= $errores['correo'] ?></p>
+                <?php endif; ?>
 
+                <!-- MENSAJE -->
                 <div class="fila-mensaje">
-                    <label for="mensaje"><div class="asterisco">*</div> Datos de interés:</label>
-                    <textarea id="mensaje" name="mensaje"><?= htmlspecialchars($mensaje) ?></textarea>
+                    <label for="mensaje">
+                        <div class="asterisco">*</div> Datos de interés:
+                    </label>
+                    <textarea id="mensaje" name="mensaje"><?= $old['mensaje'] ?? '' ?></textarea>
                 </div>
+                <?php if (isset($errores['mensaje'])): ?>
+                    <p style="color:red;"><?= $errores['mensaje'] ?></p>
+                <?php endif; ?>
 
                 <button type="submit">Enviar</button>
             </form>
