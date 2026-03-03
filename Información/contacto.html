@@ -26,7 +26,7 @@
             <a href="../Jugadores/jugadores.html">Ranking de jugadores</a>
             <a href="../Clases/clases.html">Clases</a>
             <a href="../Información/informacion.html" class="activo">Información</a>
-            <a href="../Login/login.php">Inicio de sesión</a>
+            <a href="../Login/login.html">Inicio de sesión</a>
         </div>
     </div>
 
@@ -39,39 +39,39 @@
                 <a href="anulacion.html">3. Reservas y anulaciones</a><br>
                 <a href="tarifas.html">4. Tarifas</a><br>
                 <a href="servicios.html">5. Servicios</a><br>
-                <a href="contacto.php" class="activo">6. Contacto</a>
+                <a href="contacto.html" class="activo">6. Contacto</a>
             </div>
 
             <div class="contenido">
                 <h2>6. Contacto</h2>
                 <p>En este apartado puedes enviarnos tus quejas, reclamaciones, sugerencias o cualquier otro tipo de mensaje.</p>
-                
+
                 <div id="recuadrocontacto">
                     <form action="" method="post">
 
                         <div class="fila">
                             <label for="nombre"><div class="asterisco">*</div> Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($nombre) ?>">
+                            <input type="text" id="nombre" name="nombre">
                         </div>
 
                         <div class="fila">
                             <label for="telefono"><div class="asterisco">*</div> Teléfono:</label>
-                            <input type="number" id="telefono" name="telefono" value="<?= htmlspecialchars($telefono) ?>">
+                            <input type="number" id="telefono" name="telefono">
                         </div>
 
                         <div class="fila">
                             <label for="asunto"><div class="asterisco">*</div> Asunto:</label>
-                            <input type="text" id="asunto" name="asunto" value="<?= htmlspecialchars($asunto) ?>">
+                            <input type="text" id="asunto" name="asunto">
                         </div>
 
                         <div class="fila">
                             <label for="correo"><div class="asterisco">*</div> Correo electrónico:</label>
-                            <input type="email" id="correo" name="correo" value="<?= htmlspecialchars($correo) ?>">
+                            <input type="email" id="correo" name="correo">
                         </div>
 
                         <div class="fila-mensaje">
                             <label for="mensaje"><div class="asterisco">*</div> Mensaje:</label>
-                            <textarea id="mensaje" name="mensaje"><?= htmlspecialchars($mensaje) ?></textarea>
+                            <textarea id="mensaje" name="mensaje"></textarea>
                         </div>
 
                         <button type="submit">Enviar</button>
