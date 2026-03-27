@@ -45,11 +45,9 @@
                     <h2>Pista 1</h2>
                     <div class="infopartida" data-dia="10/02/2026" data-hora="9:00" data-pista="Pista 1"
                         onclick="abrirConfirmacion(this)">
-<<<<<<< HEAD
+
                         <a href="confirmacion1.php">
-=======
-                        <a href="confirmacion1.html">
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
+
                             <div class="horas">
                                 <b>9:00</b>
                             </div>
@@ -73,7 +71,7 @@
                     </div></a>
                     <div class="infopartida" data-dia="10/02/2026" data-hora="10:30" data-pista="Pista 1"
                         onclick="abrirConfirmacion(this)">
-<<<<<<< HEAD
+
                         <a href="confirmacion1.php">
                             <div class="horas">
                                 <b>10:30</b>
@@ -198,11 +196,10 @@
                             <div class="horas">
                                 <b>18:00</b>
                             </div>
-=======
+
                         <div class="horas">
                             <b>10:30</b>
                         </div>
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
                         <div class="jugadorespartida">
                             <div class="jugadorpartida"><img
                                     src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
@@ -220,7 +217,6 @@
                         <div class="estadopista">
                             <span class="tipoestado">Disponible</span>
                         </div>
-<<<<<<< HEAD
                     </div></a>
                     <div class="infopartida" data-dia="10/02/2026" data-hora="19:30" data-pista="Pista 1"
                         onclick="abrirConfirmacion(this)">
@@ -233,15 +229,6 @@
                                         src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
                                 </div>
                                 <div class="jugadorpartida"><img
-=======
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="12:00" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>12:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
                                     src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
                             </div>
                             <div class="jugadorpartida"><img
@@ -250,126 +237,6 @@
                             <div class="jugadorpartida"><img
                                     src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
                             </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="13:30" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>13:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="15:00" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>15:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="16:30" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>16:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="18:00" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>18:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="19:30" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>19:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-<<<<<<< HEAD
                             </div>
                             <div class="estadopista">
                                 <span class="tipoestado">Disponible</span>
@@ -399,42 +266,11 @@
                                 <span class="tipoestado">Disponible</span>
                             </div>
                     </div></a>
-=======
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="21:00" data-pista="Pista 1"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>21:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
                 </div>
                 <div class="pistas">
                     <h2>Pista 2</h2>
                     <div class="infopartida" data-dia="10/02/2026" data-hora="9:00" data-pista="Pista 2"
                         onclick="abrirConfirmacion(this)">
-<<<<<<< HEAD
                         <a href="confirmacion1.php">
                             <div class="horas">
                                 <b>9:00</b>
@@ -649,213 +485,6 @@
                                 <span class="tipoestado">Disponible</span>
                             </div>
                     </div></a>
-=======
-                        <div class="horas">
-                            <b>9:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="10:30" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>10:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="12:00" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>12:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="13:30" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>13:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="15:00" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>15:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="16:30" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>16:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="18:00" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>18:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="19:30" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>19:30</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
-                    <div class="infopartida" data-dia="10/02/2026" data-hora="21:00" data-pista="Pista 2"
-                        onclick="abrirConfirmacion(this)">
-                        <div class="horas">
-                            <b>21:00</b>
-                        </div>
-                        <div class="jugadorespartida">
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                            <div class="jugadorpartida"><img
-                                    src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
-                            </div>
-                        </div>
-                        <div class="estadopista">
-                            <span class="tipoestado">Disponible</span>
-                        </div>
-                    </div>
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
                 </div>
             </div>
 

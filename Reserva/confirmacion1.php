@@ -21,19 +21,11 @@
     <div id="contenedor">
         <div id="menu">
             <a href="../Pantalla_inicio/inicio.html">Inicio</a>
-<<<<<<< HEAD
             <a href="../Reserva/reserva.php" class="activo">Reserva de pistas</a>
             <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
             <a href="../Clases/clases.php">Clases</a>
             <a href="../Información/informacion.html">Información</a>
             <a href="../Login/login.php">Inicio de sesión</a>
-=======
-            <a href="../Reserva/reserva.html" class="activo">Reserva de pistas</a>
-            <a href="../Jugadores/jugadores.html">Ranking de jugadores</a>
-            <a href="../Clases/clases.php">Clases</a>
-            <a href="../Información/informacion.html">Información</a>
-            <a href="../Login/login.html">Inicio de sesión</a>
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
         </div>
     </div>
 

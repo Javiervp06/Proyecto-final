@@ -47,12 +47,8 @@
                     <br>
                     <button type="submit">Iniciar sesión</button>
                 </form>
-
-<<<<<<< HEAD
                 <p>¿No tienes una cuenta? <a href="registrarse.php">Regístrate aquí</a></p>
-=======
-                <p>¿No tienes una cuenta? <a href="registrarse.html">Regístrate aquí</a></p>
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
+
             </div>
         </div>
 
