@@ -21,11 +21,19 @@
     <div id="contenedor">
         <div id="menu">
             <a href="../Pantalla_inicio/inicio.html">Inicio</a>
+<<<<<<< HEAD
+            <a href="../Reserva/reserva.php" class="activo">Reserva de pistas</a>
+            <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
+            <a href="../Clases/clases.php">Clases</a>
+            <a href="../Información/informacion.html">Información</a>
+            <a href="../Login/login.php">Inicio de sesión</a>
+=======
             <a href="../Reserva/reserva.html" class="activo">Reserva de pistas</a>
             <a href="../Jugadores/jugadores.html">Ranking de jugadores</a>
             <a href="../Clases/clases.php">Clases</a>
             <a href="../Información/informacion.html">Información</a>
             <a href="../Login/login.html">Inicio de sesión</a>
+>>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
         </div>
     </div>
 
@@ -37,11 +45,19 @@
         </h3>
 
         <div id="cuadrarfechas">
+<<<<<<< HEAD
+            <div class="fecha" id="dia1"><a href="reserva.php">.</a></div>
+            <div class="fecha" id="dia2"><a href="dia2.php">.</a></div>
+            <div class="fecha" id="dia3"><a href="dia3.php">.</a></div>
+            <div class="fecha" id="dia4"><a href="dia4.php">.</a></div>
+            <div class="fecha" id="dia5"><a href="dia5.php">.</a></div>
+=======
             <div class="fecha" id="dia1"><a href="reserva.html">.</a></div>
             <div class="fecha" id="dia2"><a href="dia2.html">.</a></div>
             <div class="fecha" id="dia3"><a href="dia3.html">.</a></div>
             <div class="fecha" id="dia4"><a href="dia4.html">.</a></div>
             <div class="fecha" id="dia5"><a href="dia5.html">.</a></div>
+>>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
 
             <div id="infopista">
                 <p><b id="nombrePista"></b></p>

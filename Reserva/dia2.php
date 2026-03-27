@@ -45,6 +45,42 @@
                     <h2>Pista 1</h2>
                     <div class="infopartida2" data-dia="11/02/2026" data-hora="9:00" data-pista="Pista 1"
                         onclick="abrirConfirmacion(this)">
+<<<<<<< HEAD
+                        <a href="confirmacion1.php">
+
+                            <div class="horas2">
+                                <b>9:00</b>
+                            </div>
+
+                            <div class="jugadorespartida2">
+                                <div class="jugadorpartida2">
+                                    <img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
+                                    <div class="jugadoralias2">Alias 1</div>
+                                </div>
+
+                                <div class="jugadorpartida2">
+                                    <img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
+                                    <div class="jugadoralias2">Alias 2</div>
+                                </div>
+
+                                <div class="jugadorpartida2">
+                                    <img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
+                                    <div class="jugadoralias2">Alias 3</div>
+                                </div>
+
+                                <div class="jugadorpartida2">
+                                    <img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg">
+                                    <div class="jugadoralias2">Alias 4</div>
+                                </div>
+                            </div>
+
+                            <div class="estadopista2">
+                                <span class="tipoestado">Disponible</span>
+                            </div>
+
+
+                    </div></a>
+=======
 
 
                         <div class="horas2">
@@ -79,6 +115,7 @@
 
 
                     </div>
+>>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
                     <div class="infopartida2" data-dia="11/02/2026" data-hora="10:30" data-pista="Pista 1"
                         onclick="abrirConfirmacion(this)">
 
