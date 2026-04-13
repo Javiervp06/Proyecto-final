@@ -37,19 +37,11 @@
         </h3>
 
         <div id="cuadrarfechas">
-<<<<<<< HEAD
             <div class="fecha" id="dia1"><a href="reserva.php">.</a></div>
             <div class="fecha" id="dia2"><a href="dia2.php">.</a></div>
             <div class="fecha" id="dia3"><a href="dia3.php">.</a></div>
             <div class="fecha" id="dia4"><a href="dia4.php">.</a></div>
             <div class="fecha" id="dia5"><a href="dia5.php">.</a></div>
-=======
-            <div class="fecha" id="dia1"><a href="reserva.html">.</a></div>
-            <div class="fecha" id="dia2"><a href="dia2.html">.</a></div>
-            <div class="fecha" id="dia3"><a href="dia3.html">.</a></div>
-            <div class="fecha" id="dia4"><a href="dia4.html">.</a></div>
-            <div class="fecha" id="dia5"><a href="dia5.html">.</a></div>
->>>>>>> 1c896e47edfc6bbac9c1903bd8d53a0c751896e5
 
             <div id="infopista">
                 <p><b id="nombrePista"></b></p>
