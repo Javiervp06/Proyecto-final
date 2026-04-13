@@ -33,9 +33,8 @@
             <h2>Inicio de sesión</h2>
             <div class="login">
                 <form action="validarlogin.php" method="post">
-                    <label for="username">Nombre de usuario:</label>
-                    <input type="text" id="username" name="username"><br>
-
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email"><br>
                     <label for="password">Contraseña:</label>
                     <input type="password" id="password" name="password"><br>
 

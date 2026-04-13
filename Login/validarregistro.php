@@ -18,6 +18,7 @@
     $posicion = $_POST["posicion"] ?? "";
     $nivel = $_POST["nivel"] ?? "";
     $nivel = str_replace(",", ".", $nivel);
+    $avatar_ruta = null;
 
     $errores = [];
 
@@ -128,4 +129,20 @@
     echo "<h2>Mensaje enviado correctamente</h2>";
     echo "<p>Gracias por registrarte, $nombre.</p>";
     echo "<a href='index.html'>Volver al inicio</a>";
+
+    require_once "../bdd/config.php";
+
+    $password_hash = password_hash($contrasena, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO usuarios 
+    (nombre, apellidos, telefono, alias, email, password, sexo, posicion, nivel, avatar)
+    VALUES 
+    ('$nombre', '$apellidos', '$telefono', '$alias', '$email', '$password_hash', '$sexo', '$posicion', '$nivel', '$avatar_ruta')";
+
+    if ($conexion->query($sql)) {
+        echo "<h2>Registro completado correctamente</h2>";
+    } else {
+        echo "Error: " . $conexion->error;
+    }
+
 ?>

@@ -98,6 +98,14 @@
 
                     <div class="columna">
                         <button id="inscribirse">Inscribirse</button>
+                        <form action="guardar_reserva.php" method="POST" id="formReserva" style="display:none;">
+                            <input type="hidden" name="dia" id="diaInput">
+                            <input type="hidden" name="hora" id="horaInput">
+                            <input type="hidden" name="hora_fin" id="horaFinInput">
+                            <input type="hidden" name="pista" id="pistaInput">
+                            <input type="hidden" name="nivel" id="nivelInput">
+                            <input type="hidden" name="jugadores" id="jugadoresInput">
+                        </form>
                     </div>
                 </div>
             </div>
