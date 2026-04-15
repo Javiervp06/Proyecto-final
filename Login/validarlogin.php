@@ -54,8 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION["usuario_nombre"] = $datos["nombre"];
                 $_SESSION["usuario_alias"] = $datos["alias"];
 
-                // Redirigir al inicio
+                // Redirigir a perfil
                 header("Location: perfil.php");
+
                 exit;
 
             } else {
