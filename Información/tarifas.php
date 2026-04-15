@@ -15,25 +15,18 @@
         </p>
     </header>
     <div id="contenedor">
-         <div id="menu">         
-            <a href="../Pantalla_inicio/inicio.html">Inicio</a>
-            <a href="../Reserva/reserva.php">Reserva de pistas</a>
-            <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
-            <a href="../Clases/clases.php">Clases</a>
-            <a href="../Información/informacion.html" class="activo">Información</a>
-            <a href="../Login/login.php">Inicio de sesión</a>
-        </div>
+         <?php include "../componentes/menu.php"; ?>
     </div>
     <div id="recuadro">
         <div id="recuadroinfo">
             <div id="informacion">
                 <p id="parrafito">Acerca de nosotros:</p>
-                <a href="informacion.html">1. ¿Dónde estamos?</a><br>
-                <a href="normas.html">2. Normas</a><br>
-                <a href="anulacion.html">3. Reservas y anulaciones</a><br>
-                <a href="tarifas.html" class="activo">4. Tarifas</a><br>
-                <a href="servicios.html">5. Servicios</a><br>
-                <a href="contacto.html">6. Contacto</a>
+                <a href="informacion.php">1. ¿Dónde estamos?</a><br>
+                <a href="normas.php">2. Normas</a><br>
+                <a href="anulacion.php">3. Reservas y anulaciones</a><br>
+                <a href="tarifas.php" class="activo">4. Tarifas</a><br>
+                <a href="servicios.php">5. Servicios</a><br>
+                <a href="contacto.php">6. Contacto</a>
             </div>
             <div class="contenido">
                 <h2>4. Tarifas</h2>

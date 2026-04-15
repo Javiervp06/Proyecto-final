@@ -14,14 +14,7 @@
         <img src="../Imágenes/telefonos.png"> <br> Jvidartep05@educarex.es <img src="../Imágenes/gmail.png"></p>
     </header>
     <div id="contenedor">   
-        <div id="menu">         
-           <a href="../Pantalla_inicio/inicio.html" class="activo">Inicio</a>
-            <a href="../Reserva/reserva.php">Reserva de pistas</a>
-            <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
-            <a href="../Clases/clases.php">Clases</a>
-            <a href="../Información/informacion.html">Información</a>
-            <a href="../Login/login.php">Inicio de sesión</a>
-        </div>
+        <?php include "../componentes/menu.php"; ?>
     </div>
     <div id="recuadro">
         <h1>Bienvenidos a PadelOrgaz</h1>

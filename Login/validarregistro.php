@@ -95,6 +95,7 @@
         foreach ($errores as $error) {
             echo "<p style='color: red;'>$error</p>";
         }
+
         exit;
     }
 
@@ -128,7 +129,7 @@
     // 6. Mensaje de éxito
     echo "<h2>Mensaje enviado correctamente</h2>";
     echo "<p>Gracias por registrarte, $nombre.</p>";
-    echo "<a href='index.html'>Volver al inicio</a>";
+    echo "<a href='perfil.php'>Volver a tu perfil</a>";
 
     require_once "../bdd/config.php";
 

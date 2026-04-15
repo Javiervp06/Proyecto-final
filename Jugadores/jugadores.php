@@ -17,14 +17,7 @@
         </p>
     </header>
     <div id="contenedor">
-         <div id="menu">         
-           <a href="../Pantalla_inicio/inicio.html">Inicio</a>
-            <a href="../Reserva/reserva.php">Reserva de pistas</a>
-            <a href="../Jugadores/jugadores.php" class="activo">Ranking de jugadores</a>
-            <a href="../Clases/clases.php">Clases</a>
-            <a href="../Información/informacion.html">Información</a>
-            <a href="../Login/login.php">Inicio de sesión</a>
-        </div>
+         <?php include "../componentes/menu.php"; ?>
     </div>
     <div id="recuadroranking">
         <!--Ranking de jugadores en el que salgan los jugadores registrados con el numero de partidos jugados, 
