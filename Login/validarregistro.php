@@ -132,6 +132,7 @@
 
     require_once "../bdd/config.php";
 
+    header("Location: miperfil.php");
     $password_hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuarios 
