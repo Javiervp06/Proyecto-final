@@ -30,11 +30,11 @@ contenedores.forEach((div, i) => {
 const archivo = location.pathname.split("/").pop();
 
 const mapa = {
-    "reserva.html": 0,
-    "dia2.html": 1,
-    "dia3.html": 2,
-    "dia4.html": 3,
-    "dia5.html": 4
+    "reserva.php": 0,
+    "dia2.php": 1,
+    "dia3.php": 2,
+    "dia4.php": 3,
+    "dia5.php": 4
 };
 
 const indiceActivo = mapa[archivo];
@@ -61,5 +61,5 @@ window.abrirConfirmacion = function (elemento) {
     localStorage.setItem("hora", elemento.dataset.hora);
     localStorage.setItem("pista", elemento.dataset.pista);
 
-    window.location.href = "confirmacion1.html";
+    window.location.href = "confirmacion1.php";
 };

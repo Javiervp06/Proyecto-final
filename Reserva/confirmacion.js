@@ -104,3 +104,18 @@ document.addEventListener("DOMContentLoaded", () => {
         img.alt = "Imagen de la pista 2";
     }
 });
+document.getElementById("inscribirse").addEventListener("click", () => {
+
+    // Rellenar los inputs ocultos
+    document.getElementById("diaInput").value = localStorage.getItem("dia");
+    document.getElementById("horaInput").value = localStorage.getItem("hora");
+    document.getElementById("horaFinInput").value = horaFin;
+    document.getElementById("pistaInput").value = localStorage.getItem("pista");
+
+    // Datos del selector
+    document.getElementById("nivelInput").value = document.getElementById("nivel").value;
+    document.getElementById("jugadoresInput").value = document.getElementById("jugadores").value;
+
+    // Enviar formulario
+    document.getElementById("formReserva").submit();
+});

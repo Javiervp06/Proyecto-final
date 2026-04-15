@@ -21,11 +21,11 @@
     <div id="contenedor">
         <div id="menu">
             <a href="../Pantalla_inicio/inicio.html">Inicio</a>
-            <a href="../Reserva/reserva.html" class="activo">Reserva de pistas</a>
-            <a href="../Jugadores/jugadores.html">Ranking de jugadores</a>
+            <a href="../Reserva/reserva.php" class="activo">Reserva de pistas</a>
+            <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
             <a href="../Clases/clases.php">Clases</a>
             <a href="../Información/informacion.html">Información</a>
-            <a href="../Login/login.html">Inicio de sesión</a>
+            <a href="../Login/login.php">Inicio de sesión</a>
         </div>
     </div>
 
@@ -37,11 +37,11 @@
         </h3>
 
         <div id="cuadrarfechas">
-            <div class="fecha" id="dia1"><a href="reserva.html">.</a></div>
-            <div class="fecha" id="dia2"><a href="dia2.html">.</a></div>
-            <div class="fecha" id="dia3"><a href="dia3.html">.</a></div>
-            <div class="fecha" id="dia4"><a href="dia4.html">.</a></div>
-            <div class="fecha" id="dia5"><a href="dia5.html">.</a></div>
+            <div class="fecha" id="dia1"><a href="reserva.php">.</a></div>
+            <div class="fecha" id="dia2"><a href="dia2.php">.</a></div>
+            <div class="fecha" id="dia3"><a href="dia3.php">.</a></div>
+            <div class="fecha" id="dia4"><a href="dia4.php">.</a></div>
+            <div class="fecha" id="dia5"><a href="dia5.php">.</a></div>
 
             <div id="infopista">
                 <p><b id="nombrePista"></b></p>
@@ -98,6 +98,14 @@
 
                     <div class="columna">
                         <button id="inscribirse">Inscribirse</button>
+                        <form action="guardar_reserva.php" method="POST" id="formReserva" style="display:none;">
+                            <input type="hidden" name="dia" id="diaInput">
+                            <input type="hidden" name="hora" id="horaInput">
+                            <input type="hidden" name="hora_fin" id="horaFinInput">
+                            <input type="hidden" name="pista" id="pistaInput">
+                            <input type="hidden" name="nivel" id="nivelInput">
+                            <input type="hidden" name="jugadores" id="jugadoresInput">
+                        </form>
                     </div>
                 </div>
             </div>
