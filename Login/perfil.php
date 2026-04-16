@@ -66,7 +66,6 @@ if ($resultado->num_rows === 1) {
         <h2>Mi Perfil</h2>
 
         <div class="login">
-<<<<<<< HEAD
 
             <?php
             // Cargar avatar desde la base de datos
@@ -78,9 +77,6 @@ if ($resultado->num_rows === 1) {
             <img src="<?= $avatar ?>"
                 alt="Avatar del usuario"
                 style="width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px;">
-
-=======
->>>>>>> 0940c959cc07883189413a9188698eb89d6d1399
             <p><strong>Nombre:</strong> <?= htmlspecialchars($nombre) ?></p>
             <p><strong>Alias:</strong> <?= htmlspecialchars($alias) ?></p>
             <p><strong>Correo electrónico:</strong> <?= htmlspecialchars($email) ?></p>
@@ -88,11 +84,6 @@ if ($resultado->num_rows === 1) {
             <br>
             <a href="editar_perfil.php" class="boton">Editar perfil</a>
         </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 0940c959cc07883189413a9188698eb89d6d1399
     </div>
 
     <footer>
@@ -100,9 +91,7 @@ if ($resultado->num_rows === 1) {
     </footer>
 
 </body>
-<<<<<<< HEAD
 
 </html>
-=======
-</html>
->>>>>>> 0940c959cc07883189413a9188698eb89d6d1399
+
+

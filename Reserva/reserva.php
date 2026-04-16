@@ -41,10 +41,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>09:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -55,10 +55,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>10:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -69,10 +69,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>12:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -83,10 +83,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>13:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -97,10 +97,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>15:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -111,10 +111,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>16:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -125,10 +125,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>18:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -139,10 +139,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>19:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -153,10 +153,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>21:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -172,10 +172,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>09:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -186,10 +186,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>10:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -200,10 +200,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>12:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -214,10 +214,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>13:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -228,10 +228,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>15:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -242,10 +242,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>16:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -256,10 +256,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>18:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -270,10 +270,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>19:30</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
@@ -284,10 +284,10 @@
         <a href="confirmacion1.php">
             <div class="horas"><b>21:00</b></div>
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
             </div>
             <div class="estadopista"><span class="tipoestado">Disponible</span></div>
         </a>
