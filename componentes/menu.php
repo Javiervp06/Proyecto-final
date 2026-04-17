@@ -21,7 +21,7 @@ require_once __DIR__ . "/../bdd/config.php";
 
     <!-- RESERVA -->
     <a href="../Reserva/reserva.php"
-        class="<?= in_array($pagina_actual, ['reserva.php', 'dia2.php', 'dia3.php', 'dia4.php', 'dia5.php']) ? 'activo' : '' ?>">
+        class="<?= in_array($pagina_actual, ['reserva.php', 'dia2.php', 'dia3.php', 'dia4.php', 'dia5.php', 'confirmacion1.php']) ? 'activo' : '' ?>">
         Reserva de pistas
     </a>
 

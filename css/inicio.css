@@ -1122,21 +1122,9 @@ form {
 }
 
 
-/*Una vez inicada sesion*/
-.avatar-mini {
-    width: 35px;              /* Tamaño del avatar */
-    height: 35px;
-    border-radius: 50%;       /* Lo hace redondo */
-    object-fit: cover;        /* Evita deformaciones */
-    vertical-align: middle;   /* Lo alinea con el texto */
-    margin-right: 8px;        /* Espacio entre foto y texto */
-}
+/*Una vez inicada sesion, pagina de perfil*/
 
-.perfil-link {
-    display: inline-flex;     /* Permite alinear imagen + texto */
-    align-items: center;      /* Centra verticalmente */
-    gap: 6px;                 /* Espacio entre imagen y texto */
-}
+
 
 
 

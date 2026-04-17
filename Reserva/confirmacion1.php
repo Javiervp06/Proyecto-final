@@ -57,13 +57,13 @@
                 <h3>Jugadores Confirmados</h3>
                 <div class="jugadoresconfirmados">
                     <div class="jugadorconfirma"><img
-                            src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                            src="../Imágenes/default-avatar.jpg"></div>
                     <div class="jugadorconfirma"><img
-                            src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                            src="../Imágenes/default-avatar.jpg"></div>
                     <div class="jugadorconfirma"><img
-                            src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                            src="../Imágenes/default-avatar.jpg"></div>
                     <div class="jugadorconfirma"><img
-                            src="../Imágenes/default-avatar-profile-icon-social-media-user-photo-vector.jpg"></div>
+                            src="../Imágenes/default-avatar.jpg"></div>
                 </div>
             </div>
 
