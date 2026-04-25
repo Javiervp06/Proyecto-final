@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PadelOrgaz-Reservas</title>
+    <title>PadelOrgaz-reservas</title>
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="shortcut icon" href="../Imágenes/Torreorgaz.png" type="image/x-icon">
 </head>
@@ -18,6 +18,7 @@
     <div id="contenedor">
         <?php include "../componentes/menu.php"; ?>
     </div>
+
     <div id="recuadroreserva">
         <h3 id="h3reserva">Pistas y Partidas de Pádel en Torreorgaz</h3>
         <p>Reserva tu pista de pádel de manera fácil y rápida a través de nuestro sistema en línea. Selecciona la fecha
