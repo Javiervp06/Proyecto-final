@@ -38,18 +38,69 @@
     <h2>Pista 1</h2>
 
     <!-- 09:00 -->
-    <div class="infopartida" data-dia="10/02/2026" data-hora="09:00" data-pista="Pista 1" onclick="abrirConfirmacion(this)">
-        <a href="confirmacion1.php">
-            <div class="horas"><b>09:00</b></div>
+    <?php
+        // Datos de la celda (estos vienen de tu bucle)
+        $dia = "10/02/2026";   // ← aquí pones el día real
+        $hora = "09:00";       // ← aquí pones la hora real
+        $pista_id = 1;         // ← 1 = Pista 1, 2 = Pista 2
+
+        // Consulta jugadores apuntados
+        $sql = "SELECT u.avatar 
+                FROM reservas r
+                JOIN usuarios u ON r.id_usuario = u.id
+                WHERE r.dia = '$dia'
+                AND r.hora_inicio = '$hora'
+                AND r.pista_id = $pista_id";
+
+        $res = $conexion->query($sql);
+
+        $jugadores = [];
+        while ($row = $res->fetch_assoc()) {
+            $jugadores[] = $row['avatar'];
+        }
+
+        $jugadores_actuales = count($jugadores);
+
+        // Estado dinámico
+        if ($jugadores_actuales == 0) {
+            $estado = "Disponible";
+            $color = "green";
+        } elseif ($jugadores_actuales < 4) {
+            $estado = "Disponible";
+            $color = "orange";
+        } else {
+            $estado = "Ocupada";
+            $color = "red";
+        }
+        ?>
+
+        <div class="infopartida" 
+            data-dia="2026-02-10" 
+            data-hora="09:00" 
+            data-pista="1" 
+            onclick="abrirConfirmacion(this)">
+
+
+            <div class="horas"><b><?= $hora ?></b></div>
+
             <div class="jugadorespartida">
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
-                <div class="jugadorpartida"><img src="../Imágenes/default-avatar.jpg"></div>
+                <?php for ($i = 0; $i < 4; $i++): 
+                    $avatar = $jugadores[$i] ?? 'default-avatar.jpg';
+                ?>
+                    <div class="jugadorpartida">
+                        <img src="../Imágenes/<?= $avatar ?>">
+                    </div>
+                <?php endfor; ?>
             </div>
-            <div class="estadopista"><span class="tipoestado">Disponible</span></div>
-        </a>
-    </div>
+
+            <div class="estadopista">
+                <span class="tipoestado" style="background-color: <?= $color ?>;">
+                    <?= $estado ?>
+                </span>
+            </div>
+
+        </div>
+
 
     <!-- 10:30 -->
     <div class="infopartida" data-dia="10/02/2026" data-hora="10:30" data-pista="Pista 1" onclick="abrirConfirmacion(this)">
@@ -305,6 +356,16 @@
     </footer>
 
     <script src="dias.js"></script>
+    <script>
+        function abrirConfirmacion(div) {
+            const dia = div.dataset.dia;
+            const hora = div.dataset.hora;
+            const pista = div.dataset.pista;
+
+            window.location.href = `confirmacion1.php?dia=${dia}&hora=${hora}&pista=${pista}`;
+        }
+
+    </script>
 
 </body>
 

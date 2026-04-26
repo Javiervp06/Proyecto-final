@@ -858,11 +858,25 @@ form {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-    height: 250px;
-    display: grid; 
     width: 31%;
     float: left;
+
+    /* CAMBIOS IMPORTANTES */
+    display: block;      /* antes grid */
+    height: auto;        /* antes 250px */
 }
+#infopista .foto-pista-contenedor {
+    height: 230px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#infopista .foto-pista-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 #infopista img{
     width: 100%;

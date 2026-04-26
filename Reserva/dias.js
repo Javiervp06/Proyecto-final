@@ -47,19 +47,3 @@ if (indiceActivo !== undefined) {
         .classList.add("activo");
 }
 
-
-/* ============================
-   3. FUNCIÓN PARA ABRIR CONFIRMACIÓN
-   ============================ */
-
-window.abrirConfirmacion = function (elemento) {
-
-    // Guardamos la fecha REAL del día pulsado
-    const fechaSeleccionada = document.querySelectorAll("#cuadrarfechas .fecha")[indiceActivo].dataset.fecha;
-
-    localStorage.setItem("dia", fechaSeleccionada);
-    localStorage.setItem("hora", elemento.dataset.hora);
-    localStorage.setItem("pista", elemento.dataset.pista);
-
-    window.location.href = "confirmacion1.php";
-};

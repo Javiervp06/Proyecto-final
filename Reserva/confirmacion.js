@@ -2,7 +2,7 @@
    RELLENAR FECHAS ARRIBA DESDE HOY
    ============================ */
 
-const contenedores = document.querySelectorAll("#cuadrarfechas .fecha");
+const contenedores = document.querySelectorAll("#dias .fecha");
 const hoy = new Date();
 
 function formatear(fecha) {
@@ -36,10 +36,10 @@ if (diaSeleccionado) {
     let fechaReserva = new Date(a, m - 1, d);
 
     // Quitamos activo de todos
-    document.querySelectorAll("#cuadrarfechas a").forEach(a => a.classList.remove("activo"));
+    document.querySelectorAll("#dias a").forEach(a => a.classList.remove("activo"));
 
     // Buscar si la fecha de la reserva coincide con alguno de los 5 días
-    const enlaces = document.querySelectorAll("#cuadrarfechas .fecha");
+    const enlaces = document.querySelectorAll("#dias .fecha");
 
     enlaces.forEach((div, i) => {
         let [dd, mm, aa] = div.dataset.fecha.split("/").map(Number);
