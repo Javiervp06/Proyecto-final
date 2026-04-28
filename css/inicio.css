@@ -1292,7 +1292,151 @@ form {
 }
 
 /* Estilos para la página de connfirmacion */
+/* ========================================================
+   📱 RESPONSIVE: TABLET (Pantallas de 769px a 1024px)
+   ======================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #recuadroreserva {
+        width: 95% !important;
+    }
 
+    /* 1. DÍAS: Hacemos que salten de línea si no caben y ajustamos altura */
+    #dias {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        height: auto !important;
+    }
+    .fecha {
+        width: 30% !important; /* Ocupan 1/3 para repartirse bien */
+        min-width: 150px !important;
+        height: auto !important;
+        line-height: normal !important;
+        padding: 12px 5px !important;
+    }
+
+    /* 2. PISTA, HORARIO, ESTADO: Los apilamos centrados porque 3 en fila no caben */
+    #cuadrarfechas {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    #infopista, #infohorario, #infoestados {
+        width: 80% !important; /* Un poco más estrechos que en móvil para que quede elegante */
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 0 20px 0 !important;
+        float: none !important;
+    }
+
+    /* 3. JUGADORES: Grid 2x2 para que no se desborden del recuadro azul */
+    .jugadoresconfirmados {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        justify-items: center;
+        width: 100%;
+    }
+    
+    .jugadorconfirma {
+        width: 180px !important; 
+        height: 180px !important;
+        margin: 0 !important;
+    }
+
+    /* 4. INSCRIPCIÓN: Evitamos que se corten los desplegables */
+    .inscripciones {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 20px 0 !important;
+    }
+    
+    .columna {
+        width: 80% !important;
+        text-align: center !important;
+        height: auto !important;
+        padding: 10px 0 !important;
+    }
+    
+    .columna select {
+        width: 100% !important;
+    }
+}
+
+/* ========================================================
+   📲 RESPONSIVE: MÓVIL (Pantallas hasta 768px)
+   ======================================================== */
+@media (max-width: 768px) {
+    /* Contenedor principal */
+    #recuadroreserva {
+        width: 95% !important;
+        margin: 10px auto !important;
+        padding: 10px !important;
+    }
+
+    /* Título más adaptado */
+    #h3reserva {
+        font-size: 16px !important;
+        text-align: center;
+    }
+
+    /* FILA 1: Pista, Horario y Estado (Se apilan verticalmente) */
+    #cuadrarfechas {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    #infopista, #infohorario, #infoestados {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 0 15px 0 !important;
+        float: none !important; /* Fundamental para anular el float:left de PC */
+        padding: 15px !important;
+    }
+
+    /* FILA 2: Jugadores (Grid 2x2 para evitar el scroll lateral que tenías) */
+    .jugadoresconfirmados {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        justify-items: center;
+    }
+
+    .jugadorconfirma img {
+        width: 120px !important; 
+        height: 120px !important;
+        margin: 0 !important;
+    }
+
+    /* FILA 3: Formulario de inscripción (Selects al 100% para que no se corten) */
+    .inscripciones {
+        flex-direction: column !important;
+        padding: 15px !important;
+        align-items: center !important;
+    }
+
+    .columna {
+        width: 100% !important;
+        height: auto !important;
+        padding: 10px 0 !important;
+    }
+
+    .columna select {
+        width: 90% !important;
+        font-size: 16px !important; /* Evita que el iPhone haga zoom al pulsar */
+        padding: 8px !important;
+    }
+
+    .columna button {
+        width: 90% !important;
+        padding: 15px !important;
+        font-size: 18px !important;
+        margin-top: 10px !important;
+    }
+}
 
 
 

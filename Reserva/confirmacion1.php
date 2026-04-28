@@ -53,7 +53,7 @@ if (!$pista) {
 // ===============================
 // 6. Obtener jugadores confirmados
 // ===============================
-$sqlJ = "SELECT u.avatar, u.nombre
+$sqlJ = "SELECT u.avatar, u.nombre, r.jugadores
          FROM reservas r
          JOIN usuarios u ON r.id_usuario = u.id
          WHERE r.dia = '$dia'
@@ -63,14 +63,26 @@ $sqlJ = "SELECT u.avatar, u.nombre
 $resJ = $conexion->query($sqlJ);
 
 $jugadores = [];
+$jugadores_actuales = 0; // Contador real de plazas ocupadas
+
 while ($row = $resJ->fetch_assoc()) {
-    $jugadores[] = $row;
+    $num_plazas_reservadas = (int)$row['jugadores'];
+    $jugadores_actuales += $num_plazas_reservadas;
+
+    // MAGIA: Añadimos la foto tantas veces como plazas haya reservado
+    for ($i = 0; $i < $num_plazas_reservadas; $i++) {
+        $jugadores[] = $row;
+    }
 }
 
-$jugadores_actuales = count($jugadores);
-
-$color_estado = ($jugadores_actuales == 0) ? "green" :
-                (($jugadores_actuales <= 3) ? "orange" : "red");
+// LOGICA DE COLORES Y ESTADO PARA EL RECUADRO SUPERIOR
+if ($jugadores_actuales >= 4) {
+    $color_estado = "red";
+    $texto_estado = "4/4 Completa";
+} else {
+    $color_estado = ($jugadores_actuales == 0) ? "green" : "orange";
+    $texto_estado = "$jugadores_actuales/4 jugadores";
+}
 
 ?>
 
@@ -250,8 +262,8 @@ $color_estado = ($jugadores_actuales == 0) ? "green" :
 
             <div id="infoestados">
                 <p><b>Estado:</b></p>
-                <div class="estado" style="color: <?= $color_estado ?>;">
-                    <?= $jugadores_actuales ?>/4 jugadores
+                <div class="estado" style="color: <?= $color_estado ?>; font-weight: bold;">
+                    <?= $texto_estado ?>
                 </div>
             </div>
 
