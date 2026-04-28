@@ -38,6 +38,19 @@ $titulo_fecha = "$dia_semana $dia_num a las $hora";
 // 4. Calcular hora fin (+90 min)
 // ===============================
 $hora_fin = date("H:i", strtotime($hora . " +90 minutes"));
+// ===============================
+// 4.5. Comprobar si la hora ya ha pasado
+// ===============================
+date_default_timezone_set('Europe/Madrid'); // Aseguramos que coja la hora de España
+
+// Juntamos el día y la hora de la pista y lo convertimos a "tiempo máquina"
+$fecha_hora_partida = strtotime("$dia $hora"); 
+$ahora = time(); // La hora exacta en la que el usuario está viendo la página
+
+$ha_pasado = false;
+if ($ahora > $fecha_hora_partida) {
+    $ha_pasado = true;
+}
 
 // ===============================
 // 5. Obtener datos de la pista
@@ -53,7 +66,8 @@ if (!$pista) {
 // ===============================
 // 6. Obtener jugadores confirmados
 // ===============================
-$sqlJ = "SELECT u.avatar, u.nombre, r.jugadores
+// Añadimos r.nivel a la consulta
+$sqlJ = "SELECT u.avatar, u.nombre, r.jugadores, r.nivel
          FROM reservas r
          JOIN usuarios u ON r.id_usuario = u.id
          WHERE r.dia = '$dia'
@@ -63,13 +77,18 @@ $sqlJ = "SELECT u.avatar, u.nombre, r.jugadores
 $resJ = $conexion->query($sqlJ);
 
 $jugadores = [];
-$jugadores_actuales = 0; // Contador real de plazas ocupadas
+$jugadores_actuales = 0; 
+$nivel_establecido = ""; // Variable para guardar el nivel de la partida
 
 while ($row = $resJ->fetch_assoc()) {
     $num_plazas_reservadas = (int)$row['jugadores'];
     $jugadores_actuales += $num_plazas_reservadas;
+    
+    // Guardamos el nivel de la partida (con coger el del primer jugador nos vale)
+    if (empty($nivel_establecido)) {
+        $nivel_establecido = $row['nivel'];
+    }
 
-    // MAGIA: Añadimos la foto tantas veces como plazas haya reservado
     for ($i = 0; $i < $num_plazas_reservadas; $i++) {
         $jugadores[] = $row;
     }
@@ -272,45 +291,71 @@ if ($jugadores_actuales >= 4) {
 
                 <div class="jugadoresconfirmados">
                     <?php for ($i = 0; $i < 4; $i++): 
-                        $avatar = $jugadores[$i]['avatar'] ?? 'default-avatar.jpg';
+                        // Verificamos si hay un jugador en esta posición y si realmente tiene una foto guardada
+                        if (isset($jugadores[$i]) && !empty($jugadores[$i]['avatar'])) {
+                            $avatar = $jugadores[$i]['avatar'];
+                            // Asumo que los avatares de los usuarios se guardan en la carpeta uploads
+                            $ruta_imagen = "../uploads/" . $avatar; 
+                        } else {
+                            // Si el hueco está libre o el usuario no tiene foto, ponemos el gris por defecto
+                            $ruta_imagen = "../Imágenes/default-avatar.jpg"; // Asegúrate de tener esta imagen aquí
+                        }
                     ?>
                         <div class="jugadorconfirma">
-                            <img src="../Imágenes/<?= $avatar ?>">
+                            <img src="<?= $ruta_imagen ?>" alt="Jugador" onerror="this.src='../Imágenes/default-avatar.jpg'">
                         </div>
                     <?php endfor; ?>
                 </div>
             </div>
 
             <div id="inscripcion">
+            <?php if ($ha_pasado): ?>
+                <h3 style="color: gray; text-align: center; margin-top: 20px;">Partida finalizada</h3>
+                <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">Esta partida ya se ha jugado o su hora ya ha pasado.</p>
+
+            <?php elseif ($jugadores_actuales >= 4): ?>
+                <h3 style="color: red; text-align: center; margin-top: 20px;">Partida completa</h3>
+                <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">Ya no hay plazas disponibles para esta partida.</p>
+            
+            <?php else: ?>
                 <h3>Inscribirse a partida:</h3>
 
                 <div class="inscripciones">
-
                     <div class="columna">
                         Tipo y nivel:<br>
-                        <select id="nivel">
-                            <option value="amistoso libre">Amistoso - Nivel libre</option>
-                            <option value="amistoso 0.25">Amistoso - Mi nivel ±0.25</option>
-                            <option value="amistoso 0.5">Amistoso - Mi nivel ±0.5</option>
-                        </select>
+                        <?php if ($jugadores_actuales == 0): ?>
+                            <select id="nivel">
+                                <option value="amistoso libre">Amistoso - Nivel libre</option>
+                                <option value="amistoso 0.25">Amistoso - Mi nivel ±0.25</option>
+                                <option value="amistoso 0.5">Amistoso - Mi nivel ±0.5</option>
+                            </select>
+                        <?php else: ?>
+                            <div style="padding: 8px; background-color: #eef4ff; border-radius: 5px; font-weight: bold; margin-top: 10px; color: #085fe2; text-transform: capitalize;">
+                                <?php 
+                                    // Si el nivel contiene números (0.25, 0.5), le concatenamos el ± delante
+                                    if (preg_match('/[0-9]/', $nivel_establecido)) {
+                                        echo "± " . htmlspecialchars($nivel_establecido);
+                                    } else {
+                                        echo htmlspecialchars($nivel_establecido);
+                                    }
+                                ?>
+                            </div>
+                            <input type="hidden" id="nivel" value="<?= htmlspecialchars($nivel_establecido) ?>">
+                        <?php endif; ?>
                     </div>
 
                     <div class="columna">
                         Jugadores a inscribir:<br>
                         <select id="jugadores">
                             <option value="1">1 jugador</option>
-                            <option value="2">2 jugadores</option>
-                            <option value="3">3 jugadores</option>
-                            <option value="4">4 jugadores</option>
+                            <?php if ($jugadores_actuales <= 2): ?><option value="2">2 jugadores</option><?php endif; ?>
+                            <?php if ($jugadores_actuales <= 1): ?><option value="3">3 jugadores</option><?php endif; ?>
+                            <?php if ($jugadores_actuales == 0): ?><option value="4">4 jugadores</option><?php endif; ?>
                         </select>
                     </div>
 
                     <div class="columna">
-                        <?php if ($jugadores_actuales >= 4): ?>
-                            <button id="inscribirse" disabled style="background:red;">Partida completa</button>
-                        <?php else: ?>
-                            <button id="inscribirse">Inscribirse</button>
-                        <?php endif; ?>
+                        <button id="inscribirse">Inscribirse</button>
 
                         <form action="guardareserva.php" method="POST" id="formReserva" style="display:none;">
                             <input type="hidden" name="dia" id="diaInput">
@@ -321,9 +366,9 @@ if ($jugadores_actuales >= 4) {
                             <input type="hidden" name="jugadores" id="jugadoresInput">
                         </form>
                     </div>
-
                 </div>
-            </div>
+            <?php endif; ?>
+        </div>
 
         </div>
     </div>

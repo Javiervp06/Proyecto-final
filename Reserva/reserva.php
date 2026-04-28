@@ -51,27 +51,38 @@ $pistas = [1 => 'Pista 1', 2 => 'Pista 2'];
 
                     <?php foreach ($horas as $hora): ?>
                     <?php
-                        $sql = "SELECT u.avatar 
+                        // 1. Modificamos la consulta para traernos también el número de jugadores (plazas)
+                        $sql = "SELECT u.avatar, r.jugadores 
                                 FROM reservas r
                                 JOIN usuarios u ON r.id_usuario = u.id
                                 WHERE r.dia = '$dia'
                                 AND r.hora_inicio = '$hora'
                                 AND r.pista_id = $pista_id";
                         $res = $conexion->query($sql);
+                        
                         $jugadores = [];
-                        while ($row = $res->fetch_assoc()) {
-                            $jugadores[] = $row['avatar'];
-                        }
-                        $jugadores_actuales = count($jugadores);
+                        $jugadores_actuales = 0; // Llevamos la cuenta real
 
-                        if ($jugadores_actuales == 0) {
-                            $estado = "Disponible"; $color = "green";
-                        } elseif ($jugadores_actuales < 4) {
+                        while ($row = $res->fetch_assoc()) {
+                            $plazas = (int)$row['jugadores'];
+                            $jugadores_actuales += $plazas;
+                            
+                            // Metemos la foto en el array tantas veces como plazas haya reservado
+                            for ($i = 0; $i < $plazas; $i++) {
+                                $jugadores[] = $row['avatar'];
+                            }
+                        }
+
+                        // 2. Lógica de estados y colores
+                        if ($jugadores_actuales >= 4) {
+                            $estado = "Ocupada"; $color = "red";
+                        } elseif ($jugadores_actuales > 0) {
                             $estado = "Disponible"; $color = "orange";
                         } else {
-                            $estado = "Ocupada"; $color = "red";
+                            $estado = "Disponible"; $color = "green";
                         }
                     ?>
+                    
                     <div class="infopartida"
                         data-dia="<?= $dia ?>"
                         data-hora="<?= $hora ?>"
@@ -82,17 +93,22 @@ $pistas = [1 => 'Pista 1', 2 => 'Pista 2'];
 
                         <div class="jugadorespartida">
                             <?php for ($i = 0; $i < 4; $i++):
-                                $avatar = $jugadores[$i] ?? 'default-avatar.jpg';
+                                // Verificamos la ruta de la imagen igual que hicimos antes
+                                if (!empty($jugadores[$i])) {
+                                    $ruta_imagen = "../uploads/" . $jugadores[$i];
+                                } else {
+                                    $ruta_imagen = "../Imágenes/default-avatar.jpg";
+                                }
                             ?>
                                 <div class="jugadorpartida">
-                                    <img src="../uploads/<?= $avatar ?>">
+                                    <img src="<?= $ruta_imagen ?>" onerror="this.src='../Imágenes/default-avatar.jpg'">
                                 </div>
                             <?php endfor; ?>
                         </div>
 
                         <div class="estadopista">
                             <span class="tipoestado" style="background-color: <?= $color ?>;">
-                                <?= $estado ?>
+                                <?= $estado ?> (<?= $jugadores_actuales ?>/4)
                             </span>
                         </div>
                     </div>
