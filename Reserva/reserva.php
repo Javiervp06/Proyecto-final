@@ -39,12 +39,12 @@
 
     <!-- 09:00 -->
     <?php
-        // Datos de la celda (estos vienen de tu bucle)
-        $dia = "10/02/2026";   // ← aquí pones el día real
-        $hora = "09:00";       // ← aquí pones la hora real
-        $pista_id = 1;         // ← 1 = Pista 1, 2 = Pista 2
+        // Datos reales de la celda
+        $dia = "2026-02-10";   // ✔ FORMATO CORRECTO
+        $hora = "09:00";
+        $pista_id = 1;
 
-        // Consulta jugadores apuntados
+        // Consulta jugadores apuntados (con avatar)
         $sql = "SELECT u.avatar 
                 FROM reservas r
                 JOIN usuarios u ON r.id_usuario = u.id
@@ -56,7 +56,7 @@
 
         $jugadores = [];
         while ($row = $res->fetch_assoc()) {
-            $jugadores[] = $row['avatar'];
+            $jugadores[] = $row['avatar']; // ✔ CAMPO CORRECTO
         }
 
         $jugadores_actuales = count($jugadores);
@@ -72,34 +72,36 @@
             $estado = "Ocupada";
             $color = "red";
         }
-        ?>
+    ?>
 
-        <div class="infopartida" 
-            data-dia="2026-02-10" 
-            data-hora="09:00" 
-            data-pista="1" 
-            onclick="abrirConfirmacion(this)">
+    <div class="infopartida" 
+        data-dia="<?= $dia ?>" 
+        data-hora="<?= $hora ?>" 
+        data-pista="<?= $pista_id ?>" 
+        onclick="abrirConfirmacion(this)">
 
+        <div class="horas"><b><?= $hora ?></b></div>
 
-            <div class="horas"><b><?= $hora ?></b></div>
-
-            <div class="jugadorespartida">
-                <?php for ($i = 0; $i < 4; $i++): 
-                    $avatar = $jugadores[$i] ?? 'default-avatar.jpg';
-                ?>
-                    <div class="jugadorpartida">
-                        <img src="../Imágenes/<?= $avatar ?>">
-                    </div>
-                <?php endfor; ?>
-            </div>
-
-            <div class="estadopista">
-                <span class="tipoestado" style="background-color: <?= $color ?>;">
-                    <?= $estado ?>
-                </span>
-            </div>
-
+        <div class="jugadorespartida">
+            <?php for ($i = 0; $i < 4; $i++): 
+                $avatar = $jugadores[$i] ?? 'default-avatar.jpg';
+            ?>
+                <div class="jugadorpartida">
+                    <img src="../uploads/<?= $avatar ?>"> <!-- ✔ RUTA CORRECTA -->
+                </div>
+            <?php endfor; ?>
         </div>
+
+        <div class="estadopista">
+            <span class="tipoestado" style="background-color: <?= $color ?>;">
+                <?= $estado ?>
+            </span>
+        </div>
+
+    </div>
+
+
+
 
 
     <!-- 10:30 -->

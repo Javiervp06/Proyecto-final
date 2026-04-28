@@ -298,7 +298,7 @@ $color_estado = ($jugadores_actuales == 0) ? "green" :
                             <button id="inscribirse">Inscribirse</button>
                         <?php endif; ?>
 
-                        <form action="guardar_reserva.php" method="POST" id="formReserva" style="display:none;">
+                        <form action="guardareserva.php" method="POST" id="formReserva" style="display:none;">
                             <input type="hidden" name="dia" id="diaInput">
                             <input type="hidden" name="hora" id="horaInput">
                             <input type="hidden" name="hora_fin" id="horaFinInput">

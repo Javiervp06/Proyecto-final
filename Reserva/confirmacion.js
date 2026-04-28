@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 /* ============================
    RELLENAR FECHAS ARRIBA DESDE HOY
    ============================ */
@@ -96,26 +98,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const img = document.getElementById("imagenPista");
 
-    if (pista === "Pista 1") {
+    if (pista === "1") {
         img.src = "../Imágenes/pista1.jpg";
         img.alt = "Imagen de la pista 1";
-    } else if (pista === "Pista 2") {
+    } else if (pista === "2") {
         img.src = "../Imágenes/pista2.jpg";
         img.alt = "Imagen de la pista 2";
     }
 });
 document.getElementById("inscribirse").addEventListener("click", () => {
 
-    // Rellenar los inputs ocultos
     document.getElementById("diaInput").value = localStorage.getItem("dia");
     document.getElementById("horaInput").value = localStorage.getItem("hora");
     document.getElementById("horaFinInput").value = horaFin;
-    document.getElementById("pistaInput").value = localStorage.getItem("pista");
 
-    // Datos del selector
+    // Extraer solo el número de "Pista 1"
+    let pistaTexto = localStorage.getItem("pista");
+    let pistaID = pistaTexto.match(/\d+/)[0];
+    document.getElementById("pistaInput").value = pistaID;
+
     document.getElementById("nivelInput").value = document.getElementById("nivel").value;
     document.getElementById("jugadoresInput").value = document.getElementById("jugadores").value;
 
-    // Enviar formulario
     document.getElementById("formReserva").submit();
 });
+
+
+
+});
+
+

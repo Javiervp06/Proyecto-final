@@ -1,7 +1,5 @@
 <?php
-echo "Entrando en guardar_reserva.php";
-
-require_once "config.php";
+require_once "../bdd/config.php";
 
 $dia = $_POST['dia'];
 $hora = $_POST['hora'];
@@ -10,15 +8,17 @@ $pista = $_POST['pista'];
 $nivel = $_POST['nivel'];
 $jugadores = $_POST['jugadores'];
 
-$sql = "INSERT INTO reservas (dia, hora_inicio, hora_fin, pista_id, nivel, jugadores)
-        VALUES ('$dia', '$hora', '$hora_fin', '$pista', '$nivel', '$jugadores')";
+session_start();
+$id_usuario = $_SESSION['id'];
+
+$sql = "INSERT INTO reservas (dia, hora_inicio, hora_fin, pista_id, id_usuario, nivel, jugadores)
+        VALUES ('$dia', '$hora', '$hora_fin', '$pista', '$id_usuario', '$nivel', '$jugadores')";
+
 
 if ($conexion->query($sql)) {
-    echo "Reserva guardada correctamente";
+    header("Location: reservas.php");
+    exit;
 } else {
     echo "Error: " . $conexion->error;
 }
-var_dump($_POST);
-
 ?>
-
