@@ -193,7 +193,6 @@ if ($resultado->num_rows === 1) {
                             <p><strong>Fecha de Alta:</strong> <?= $usuario["creado_en"] ?></p>
                             <p><strong>¿Socio?:</strong> No</p>
                             <p><strong>Partidos Amistosos:</strong> 0</p>
-                            <p><strong>Partidas Competitivas:</strong> 0</p>
                             <hr>
                             <p class="descripcion">Aquí puedes ver tus estadísticas básicas. ¡Sigue jugando para mejorar tu nivel!</p>
                             <a href="editar_perfil.php" class="boton-editar">✏️ Editar perfil</a>

@@ -1,49 +1,29 @@
-/* ============================
-   1. RELLENAR FECHAS ARRIBA (DINÁMICO DESDE HOY)
-   ============================ */
-
 const contenedores = document.querySelectorAll("#cuadrarfechas .fecha");
 const hoy = new Date();
 
 function formatear(fecha) {
     return fecha.toLocaleDateString("es-ES", {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
+        weekday: "long", day: "numeric", month: "long"
     });
 }
+
+function toISO(fecha) {
+    const yyyy = fecha.getFullYear();
+    const mm = String(fecha.getMonth() + 1).padStart(2, "0");
+    const dd = String(fecha.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+}
+
+const params = new URLSearchParams(window.location.search);
+const diaActivo = params.get("dia") || toISO(hoy);
 
 contenedores.forEach((div, i) => {
     const fecha = new Date();
     fecha.setDate(hoy.getDate() + i);
-    div.querySelector("a").textContent = formatear(fecha);
-
-    // Guardamos la fecha real en cada botón
-    div.dataset.fecha = fecha.toLocaleDateString("es-ES");
+    const enlace = div.querySelector("a");
+    enlace.textContent = formatear(fecha);
+    enlace.href = `reserva.php?dia=${toISO(fecha)}`;
+    if (toISO(fecha) === diaActivo) {
+        enlace.classList.add("activo");
+    }
 });
-
-
-/* ============================
-   2. MARCAR EL DÍA ACTIVO SEGÚN LA PÁGINA
-   ============================ */
-
-const archivo = location.pathname.split("/").pop();
-
-const mapa = {
-    "reserva.php": 0,
-    "dia2.php": 1,
-    "dia3.php": 2,
-    "dia4.php": 3,
-    "dia5.php": 4
-};
-
-const indiceActivo = mapa[archivo];
-
-if (indiceActivo !== undefined) {
-    document.querySelectorAll("#cuadrarfechas .fecha a")
-        .forEach(a => a.classList.remove("activo"));
-
-    document.querySelectorAll("#cuadrarfechas .fecha a")[indiceActivo]
-        .classList.add("activo");
-}
-

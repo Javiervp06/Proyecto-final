@@ -23,15 +23,17 @@ if (!$dia || !$hora || !$pista_id) {
 // ===============================
 // 3. Formatear fecha en español
 // ===============================
-setlocale(LC_TIME, 'es_ES.UTF-8');
-
 $timestamp = strtotime($dia);
-$dia_semana = ucfirst(strftime("%A", $timestamp)); 
-$dia_num = strftime("%d", $timestamp);             
-$dia_largo = ucfirst(strftime("%A %d de %B", $timestamp)); 
 
+$dias_semana = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+$meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+$dia_semana = ucfirst($dias_semana[date('w', $timestamp)]);
+$dia_num    = date('d', $timestamp);
+$mes        = $meses[date('n', $timestamp) - 1];
+
+$dia_largo  = "$dia_semana $dia_num de $mes";
 $titulo_fecha = "$dia_semana $dia_num a las $hora";
-
 // ===============================
 // 4. Calcular hora fin (+90 min)
 // ===============================
