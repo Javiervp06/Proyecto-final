@@ -43,8 +43,8 @@
                     <li>De 14:00 a 17:00 - 15€ por hora</li>
                     <li>De 17:00 a 22:00 - 18€ por hora</li>
                 </ul>
-                <p class="advertencia">⚠️ Ofrecemos descuentos especiales para reservas de larga duración y para grupos grandes.
-                    Consulta con nuestro equipo para más detalles.</p>
+               
+                <p class="advertencia">⚠️ Ofrecemos descuentos especiales para reservas de larga duración y para grupos grandes. Contacta con nosotros para más detalles.</p>
             </div>
         </div>
     </div>

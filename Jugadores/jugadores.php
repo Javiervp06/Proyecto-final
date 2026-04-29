@@ -17,6 +17,7 @@ $resultado = $conexion->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PadelOrgaz-Jugadores</title>
     <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/jugadores.css">
     <link rel="shortcut icon" href="../Imágenes/Torreorgaz.png" type="image/x-icon">
 </head>
 

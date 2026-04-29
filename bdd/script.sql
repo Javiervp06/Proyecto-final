@@ -44,7 +44,6 @@ DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_general_ci;
 
 
-
 INSERT INTO pistas (id, nombre, descripcion, imagen)
 VALUES
 (1, 'Pista 1', 'Pista exterior', 'pista1.jpg'),

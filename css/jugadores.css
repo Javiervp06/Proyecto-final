@@ -1,0 +1,87 @@
+.jugador-card {
+    display: flex;
+    align-items: flex-start;
+    /* el texto empieza arriba */
+    background: white;
+    padding: 0;
+    margin: 15px auto;
+    width: 85%;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* une visualmente los bloques */
+}
+
+/* BLOQUES IZQUIERDA (nivel–foto–posición) */
+.jugador-nivel-box,
+.jugador-posicion-box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    border-radius: 0;
+}
+
+.jugador-nivel-box {
+    background: #2e7d32;
+    color: white;
+}
+
+.jugador-posicion-box {
+    background: #e0f2e9;
+    color: #2e7d32;
+}
+
+/* FOTO */
+.jugador-imagen img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* INFORMACIÓN */
+.jugador-info {
+    flex: 1;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%; /* se adapta a la altura de los bloques */
+}
+
+
+/* IZQUIERDA: nombre, posición, sexo, alta */
+.info-izquierda {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 60%; /* ocupa la parte izquierda */
+}
+
+.jugador-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.info-izquierda p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* DERECHA: último partido */
+.info-derecha {
+    width: 40%; /* parte derecha */
+}
+
+.info-derecha p {
+    font-size: 14px;
+    margin: 0;
+}
+
