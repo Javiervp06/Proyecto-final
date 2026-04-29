@@ -18,11 +18,11 @@
     </header>
     <div id="contenedor">
         <div id="menu">
-            <a href="../Pantalla_inicio/inicio.html">Inicio</a>
+            <a href="../Pantalla_inicio/inicio.php">Inicio</a>
             <a href="../Reserva/reserva.php">Reserva de pistas</a>
             <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
             <a href="../Clases/clases.php">Clases</a>
-            <a href="../Información/informacion.html">Información</a>
+            <a href="../Información/informacion.php">Información</a>
             <a href="../Login/login.php" class="activo">Inicio de sesión</a>
         </div>
     </div>
@@ -91,9 +91,9 @@
                     <label for="sexo">Sexo:</label>
                     <select id="sexo" name="sexo">
                         <option value="">--Selecciona uno--</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                        <option value="otro">Otro</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
                     </select>
                 </div>
 
@@ -101,9 +101,9 @@
                     <label for="posicion">Posición:</label>
                     <select id="posicion" name="posicion">
                         <option value="">--Selecciona uno--</option>
-                        <option value="drive">Drive</option>
-                        <option value="reves">Revés</option>
-                        <option value="ambas">Ambas</option>
+                        <option value="Drive">Drive</option>
+                        <option value="Reves">Revés</option>
+                        <option value="Ambas">Ambas</option>
                     </select>
                 </div>
 

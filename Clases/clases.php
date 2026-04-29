@@ -2,8 +2,9 @@
 session_start();
 $errores = $_SESSION["errores"] ?? [];
 $old = $_SESSION["old"] ?? [];
-session_unset();
+unset($_SESSION["errores"], $_SESSION["old"]); // SOLO borramos errores, no la sesión entera
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,23 +19,17 @@ session_unset();
 <body>
     <header>
         <img src="../Imágenes/Logopaginaweb.png" alt="Logo de Torreorgaz" class="logo">
-        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91 
+        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91
             <img src="../Imágenes/whatsapp.jpg">
-            <img src="../Imágenes/telefonos.png"> 
+            <img src="../Imágenes/telefonos.png">
             <br> Jvidartep05@educarex.es <img src="../Imágenes/gmail.png">
         </p>
     </header>
 
     <div id="contenedor">
-        <div id="menu">
-            <a href="../Pantalla_inicio/inicio.html">Inicio</a>
-            <a href="../Reserva/reserva.php">Reserva de pistas</a>
-            <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
-            <a href="../Clases/clases.php" class="activo">Clases</a>
-            <a href="../Información/informacion.html">Información</a>
-            <a href="../Login/login.php">Inicio de sesión</a>
-        </div>
+        <?php include "../componentes/menu.php"; ?>
     </div>
+
 
     <div id="recuadro">
         <div id="clases">
@@ -115,4 +110,5 @@ session_unset();
     </footer>
 
 </body>
+
 </html>

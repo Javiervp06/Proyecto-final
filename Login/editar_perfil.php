@@ -11,6 +11,7 @@ if (!isset($_SESSION["usuario_id"])) {
 $id = $_SESSION["usuario_id"];
 $errores = [];
 $mensaje_exito = "";
+$volver_perfil = "";
 
 // Obtener datos actuales del usuario
 $sql = "SELECT * FROM usuarios WHERE id = $id";
@@ -160,17 +161,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div id="contenedor">
         <div id="menu">
-            <a href="../Pantalla_inicio/inicio.html">Inicio</a>
+            <a href="../Pantalla_inicio/inicio.php">Inicio</a>
             <a href="../Reserva/reserva.php">Reserva de pistas</a>
             <a href="../Jugadores/jugadores.php">Ranking de jugadores</a>
             <a href="../Clases/clases.php">Clases</a>
-            <a href="../Información/informacion.html">Información</a>
+            <a href="../Información/informacion.php">Información</a>
             <a href="perfil.php" class="activo">Mi perfil</a>
         </div>
     </div>
 
     <div id="recuadro">
         <h2>Editar Perfil</h2>
+        <a href="perfil.php">Volver a mi perfil</a>
 
         <?php if (!empty($errores)): ?>
             <div style="color: red;">

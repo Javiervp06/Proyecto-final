@@ -1,8 +1,10 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 /* ============================
    RELLENAR FECHAS ARRIBA DESDE HOY
    ============================ */
 
-const contenedores = document.querySelectorAll("#cuadrarfechas .fecha");
+const contenedores = document.querySelectorAll("#dias .fecha");
 const hoy = new Date();
 
 function formatear(fecha) {
@@ -13,58 +15,42 @@ function formatear(fecha) {
     });
 }
 
-// Generar HOY → HOY+4
 contenedores.forEach((div, i) => {
     const fecha = new Date();
     fecha.setDate(hoy.getDate() + i);
-
     div.querySelector("a").textContent = formatear(fecha);
     div.dataset.fecha = fecha.toLocaleDateString("es-ES");
 });
 
-
 /* ============================
-   MARCAR EL DÍA DE LA RESERVA (SI ESTÁ EN EL RANGO)
+   MARCAR EL DÍA DE LA RESERVA
    ============================ */
 
-let diaSeleccionado = localStorage.getItem("dia"); // ej: "11/02/2026"
+// Leer dia desde la URL (formato 2026-02-10)
+const params = new URLSearchParams(window.location.search);
+const diaURL = params.get("dia");     // "2026-02-10"
+const horaURL = params.get("hora");   // "09:00"
+const pistaURL = params.get("pista"); // "1"
 
-if (diaSeleccionado) {
-
-    // Convertimos la fecha guardada a Date
-    let [d, m, a] = diaSeleccionado.split("/").map(Number);
+if (diaURL) {
+    let [a, m, d] = diaURL.split("-").map(Number);
     let fechaReserva = new Date(a, m - 1, d);
 
-    // Quitamos activo de todos
-    document.querySelectorAll("#cuadrarfechas a").forEach(a => a.classList.remove("activo"));
+    document.querySelectorAll("#dias a").forEach(a => a.classList.remove("activo"));
 
-    // Buscar si la fecha de la reserva coincide con alguno de los 5 días
-    const enlaces = document.querySelectorAll("#cuadrarfechas .fecha");
-
-    enlaces.forEach((div, i) => {
+    document.querySelectorAll("#dias .fecha").forEach((div) => {
         let [dd, mm, aa] = div.dataset.fecha.split("/").map(Number);
         let fechaBoton = new Date(aa, mm - 1, dd);
-
         if (fechaBoton.getTime() === fechaReserva.getTime()) {
             div.querySelector("a").classList.add("activo");
         }
     });
 }
 
-
 /* ============================
-   RESTO DE TU SCRIPT (SIN CAMBIOS)
+   CALCULAR HORA FIN
    ============================ */
 
-// Texto de confirmación
-let dia = localStorage.getItem("dia");
-let hora = localStorage.getItem("hora");
-let pista = localStorage.getItem("pista");
-
-document.querySelector(".fechayhora").textContent =
-    `El ${dia} a las ${hora} en ${pista}`;
-
-// Calcular hora de fin (90 minutos)
 function sumarMinutos(hora, minutos) {
     let [h, m] = hora.split(":").map(Number);
     m += minutos;
@@ -73,49 +59,25 @@ function sumarMinutos(hora, minutos) {
     return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
-let horaFin = sumarMinutos(hora, 90);
+let horaFin = horaURL ? sumarMinutos(horaURL, 90) : "";
 
-function obtenerDiaSemana(fechaTexto) {
-    let [dia, mes, año] = fechaTexto.split("/").map(Number);
-    let fecha = new Date(año, mes - 1, dia);
-    return fecha.toLocaleDateString("es-ES", { weekday: "long" });
-}
+/* ============================
+   BOTÓN INSCRIBIRSE
+   ============================ */
 
-let diaSemana = obtenerDiaSemana(dia);
-
-document.querySelector("#infohorario p").innerHTML =
-    `<b>Inicio:</b><br>El ${diaSemana} a las ${hora}`;
-
-document.querySelector(".finpartida").innerHTML =
-    `<b>Fin:</b><br>El ${diaSemana} a las ${horaFin}`;
-
-// Mostrar pista
-document.addEventListener("DOMContentLoaded", () => {
-    const pista = localStorage.getItem("pista");
-    document.getElementById("nombrePista").textContent = pista;
-
-    const img = document.getElementById("imagenPista");
-
-    if (pista === "Pista 1") {
-        img.src = "../Imágenes/pista1.jpg";
-        img.alt = "Imagen de la pista 1";
-    } else if (pista === "Pista 2") {
-        img.src = "../Imágenes/pista2.jpg";
-        img.alt = "Imagen de la pista 2";
-    }
-});
 document.getElementById("inscribirse").addEventListener("click", () => {
+    // Convertir fecha de URL (2026-02-10) a formato dd/mm/yyyy para la BD
+    let [a, m, d] = diaURL.split("-").map(Number);
+    let diaFormateado = `${String(d).padStart(2,"0")}/${String(m).padStart(2,"0")}/${a}`;
 
-    // Rellenar los inputs ocultos
-    document.getElementById("diaInput").value = localStorage.getItem("dia");
-    document.getElementById("horaInput").value = localStorage.getItem("hora");
+    document.getElementById("diaInput").value = diaURL;
+    document.getElementById("horaInput").value = horaURL;
     document.getElementById("horaFinInput").value = horaFin;
-    document.getElementById("pistaInput").value = localStorage.getItem("pista");
-
-    // Datos del selector
+    document.getElementById("pistaInput").value = pistaURL;
     document.getElementById("nivelInput").value = document.getElementById("nivel").value;
     document.getElementById("jugadoresInput").value = document.getElementById("jugadores").value;
 
-    // Enviar formulario
     document.getElementById("formReserva").submit();
+});
+
 });
