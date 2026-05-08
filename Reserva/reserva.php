@@ -1,6 +1,5 @@
 <?php
 require "../bdd/config.php";
-session_start();
 
 // Fecha activa: parámetro URL o hoy
 $dia = $_GET['dia'] ?? date('Y-m-d');
@@ -15,17 +14,38 @@ $pistas = [1 => 'Pista 1', 2 => 'Pista 2'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PadelOrgaz-reservas</title>
-    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/inicio.css?v=1">
     <link rel="shortcut icon" href="../Imágenes/Torreorgaz.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <img src="../Imágenes/Logopaginaweb.png" alt="Logo de Torreorgaz" class="logo">
-        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91 
-            <img src="../Imágenes/whatsapp.jpg">
-            <img src="../Imágenes/telefonos.png"><br>
-            Jvidartep05@educarex.es <img src="../Imágenes/gmail.png">
-        </p>
+    <header class="header-universal">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="../Pantalla_inicio/inicio.php">
+                    <img src="../Imágenes/Logopaginaweb.png" alt="PadelOrgaz Logo">
+                </a>
+            </div>
+
+            <div class="header-info">
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <div class="info-texts">
+                        <p class="info-title">Ubicación</p>
+                        <p class="info-sub">C. la Trancha, 0, Torreorgaz</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+
+                <div class="info-block">
+                    <span class="info-icon">📞</span>
+                    <div class="info-texts">
+                        <p class="info-title">Contacto</p>
+                        <p class="info-sub">665 33 37 91 | Jvidartep05@educarex.es</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <div id="contenedor">
         <?php include "../componentes/menu.php"; ?>
@@ -51,8 +71,8 @@ $pistas = [1 => 'Pista 1', 2 => 'Pista 2'];
 
                     <?php foreach ($horas as $hora): ?>
                     <?php
-                        // 1. Modificamos la consulta para traernos también el número de jugadores (plazas)
-                        $sql = "SELECT u.avatar, r.jugadores 
+                        // 1. Modificamos la consulta para traernos también el alias
+                        $sql = "SELECT u.avatar, u.alias, r.jugadores 
                                 FROM reservas r
                                 JOIN usuarios u ON r.id_usuario = u.id
                                 WHERE r.dia = '$dia'
@@ -67,9 +87,12 @@ $pistas = [1 => 'Pista 1', 2 => 'Pista 2'];
                             $plazas = (int)$row['jugadores'];
                             $jugadores_actuales += $plazas;
                             
-                            // Metemos la foto en el array tantas veces como plazas haya reservado
+                            // Metemos la foto y el alias en un mini-array por cada plaza
                             for ($i = 0; $i < $plazas; $i++) {
-                                $jugadores[] = $row['avatar'];
+                                $jugadores[] = [
+                                    'avatar' => $row['avatar'],
+                                    'alias' => $row['alias']
+                                ];
                             }
                         }
 
@@ -93,15 +116,17 @@ $pistas = [1 => 'Pista 1', 2 => 'Pista 2'];
 
                         <div class="jugadorespartida">
                             <?php for ($i = 0; $i < 4; $i++):
-                                // Verificamos la ruta de la imagen igual que hicimos antes
+                                // Verificamos si hay un jugador en esta plaza
                                 if (!empty($jugadores[$i])) {
-                                    $ruta_imagen = "../uploads/" . $jugadores[$i];
+                                    $ruta_imagen = "../uploads/" . $jugadores[$i]['avatar'];
+                                    $alias_jugador = htmlspecialchars($jugadores[$i]['alias']);
                                 } else {
                                     $ruta_imagen = "../Imágenes/default-avatar.jpg";
+                                    $alias_jugador = "Plaza libre"; // Si no hay nadie, mostramos esto
                                 }
                             ?>
-                                <div class="jugadorpartida">
-                                    <img src="<?= $ruta_imagen ?>" onerror="this.src='../Imágenes/default-avatar.jpg'">
+                                <div class="jugadorpartida" title="<?= $alias_jugador ?>">
+                                    <img src="<?= $ruta_imagen ?>" onerror="this.src='../Imágenes/default-avatar.jpg'" alt="Jugador">
                                 </div>
                             <?php endfor; ?>
                         </div>

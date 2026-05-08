@@ -65,19 +65,23 @@ let horaFin = horaURL ? sumarMinutos(horaURL, 90) : "";
    BOTÓN INSCRIBIRSE
    ============================ */
 
-document.getElementById("inscribirse").addEventListener("click", () => {
-    // Convertir fecha de URL (2026-02-10) a formato dd/mm/yyyy para la BD
-    let [a, m, d] = diaURL.split("-").map(Number);
-    let diaFormateado = `${String(d).padStart(2,"0")}/${String(m).padStart(2,"0")}/${a}`;
+const btnInscribirse = document.getElementById("inscribirse");
 
-    document.getElementById("diaInput").value = diaURL;
-    document.getElementById("horaInput").value = horaURL;
-    document.getElementById("horaFinInput").value = horaFin;
-    document.getElementById("pistaInput").value = pistaURL;
-    document.getElementById("nivelInput").value = document.getElementById("nivel").value;
-    document.getElementById("jugadoresInput").value = document.getElementById("jugadores").value;
-
-    document.getElementById("formReserva").submit();
-});
+if (btnInscribirse) {
+    btnInscribirse.addEventListener("click", () => {
+        // Tu formulario de PHP ya tiene la fecha, hora y pista rellenados.
+        // Solo necesitamos coger el Nivel y los Jugadores de los desplegables.
+        
+        let nivelElegido = document.getElementById("nivel").value;
+        let jugadoresElegidos = document.getElementById("jugadores").value;
+        
+        // Lo metemos en los inputs ocultos
+        document.getElementById("nivelInput").value = nivelElegido;
+        document.getElementById("jugadoresInput").value = jugadoresElegidos;
+        
+        // Enviamos el formulario
+        document.getElementById("formReserva").submit();
+    });
+}
 
 });

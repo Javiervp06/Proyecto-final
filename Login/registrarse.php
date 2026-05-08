@@ -10,11 +10,34 @@
 </head>
 
 <body>
-    <header>
-        <img src="../Imágenes/Logopaginaweb.png" alt="Logo de Torreorgaz" class="logo">
-        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91 <img src="../Imágenes/whatsapp.jpg">
-            <img src="../Imágenes/telefonos.png"> <br> Jvidartep05@educarex.es <img src="../Imágenes/gmail.png">
-        </p>
+    <header class="header-universal">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="../Pantalla_inicio/inicio.php">
+                    <img src="../Imágenes/Logopaginaweb.png" alt="PadelOrgaz Logo">
+                </a>
+            </div>
+
+            <div class="header-info">
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <div class="info-texts">
+                        <p class="info-title">Ubicación</p>
+                        <p class="info-sub">C. la Trancha, 0, Torreorgaz</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+
+                <div class="info-block">
+                    <span class="info-icon">📞</span>
+                    <div class="info-texts">
+                        <p class="info-title">Contacto</p>
+                        <p class="info-sub">665 33 37 91 | Jvidartep05@educarex.es</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <div id="contenedor">
         <div id="menu">
@@ -29,7 +52,8 @@
     <div id="recuadro">
         <h2>Registro de usuario</h2>
         <div id="recuadroregistro">
-            <form action="validarregistro.php" method="post">
+            <form id="formulario-registro" enctype="multipart/form-data">
+                <div id="caja-mensajes" style="display: none; padding: 15px; margin-bottom: 20px; border-radius: 8px; font-weight: bold; text-align: center;"></div>
                 <!-- Datos personales -->
                 <div class="titulitos">
                     <div class="emoji">💻</div>Datos Personales:
@@ -48,7 +72,7 @@
 
                 <div class="alineacion">
                     <label for="Telefono">Teléfono:</label>
-                    <input type="number" id="Telefono" name="Telefono" min="600000000">
+                    <input type="text" id="telefono" name="telefono" maxlength="9" pattern="[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                 </div>
 
                 <div class="alineacion">
@@ -226,14 +250,12 @@
     </footer>
 
     <script>
-
         const titulo = document.getElementById("titulo-guia");
         const contenido = document.getElementById("contenido-guia");
 
         titulo.addEventListener("click", () => {
             contenido.classList.toggle("oculto");
         });
-
 
         document.getElementById("sustituir").addEventListener("change", function (event) {
             const file = event.target.files[0];
@@ -243,6 +265,68 @@
                 preview.src = URL.createObjectURL(file);
                 preview.style.display = "block";
             }
+        });
+
+        // ==========================================
+        // MAGIA AJAX PARA EL REGISTRO
+        // ==========================================
+        const formulario = document.getElementById("formulario-registro");
+        const cajaMensajes = document.getElementById("caja-mensajes");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault(); // Evitamos que la página salte y recargue
+
+            // Limpiamos la caja de mensajes antes de intentar nada
+            cajaMensajes.style.display = "none";
+            cajaMensajes.innerHTML = "";
+
+            // Recogemos todos los datos del formulario (incluida la foto)
+            const formData = new FormData(formulario);
+
+            // Enviamos los datos a validarregistro.php por debajo
+            fetch("validarregistro.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) // Esperamos una respuesta JSON
+            .then(data => {
+                cajaMensajes.style.display = "block";
+
+                if (data.status === "error") {
+                    // Si hay errores, pintamos la caja de ROJO y ponemos la lista
+                    cajaMensajes.style.backgroundColor = "#fff1f2";
+                    cajaMensajes.style.color = "#e11d48";
+                    cajaMensajes.style.border = "1px solid #e11d48";
+                    
+                    let listaErrores = "<ul style='text-align: left; margin: 0;'>";
+                    data.errores.forEach(error => {
+                        listaErrores += `<li>${error}</li>`;
+                    });
+                    listaErrores += "</ul>";
+
+                    cajaMensajes.innerHTML = "<strong>Corrige los siguientes errores:</strong>" + listaErrores;
+                    
+                    // Hacemos scroll hacia arriba para que el usuario vea los errores
+                    window.scrollTo({ top: cajaMensajes.offsetTop - 50, behavior: "smooth" });
+
+                } else if (data.status === "success") {
+                    // Si ha ido bien, pintamos la caja de VERDE
+                    cajaMensajes.style.backgroundColor = "#e0f2e9";
+                    cajaMensajes.style.color = "#2e7d32";
+                    cajaMensajes.style.border = "1px solid #2e7d32";
+                    cajaMensajes.innerHTML = "✅ " + data.mensaje;
+
+                    // Esperamos 2 segundos para que lea el mensaje, y le mandamos al login o al perfil
+                    setTimeout(() => {
+                        // Cambia esta ruta a donde quieras mandar al usuario al registrarse
+                        window.location.href = "../Pantalla_inicio/inicio.php"; 
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Hubo un error de conexión con el servidor.");
+            });
         });
     </script>
 

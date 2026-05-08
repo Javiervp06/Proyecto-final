@@ -1,34 +1,142 @@
-/* Estilos generales */
+/* ============================================
+   1. VARIABLES DE COLOR Y FUENTE (MODERNO)
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --primary-blue: #0A58CA;       
+    --primary-hover: #084298;      
+    --bg-main: #F4F7F6;            
+    --card-bg: #FFFFFF;            
+    --card-bg-alt: #F8FAFC;        
+    --text-dark: #212529;          
+    --text-muted: #6C757D;         
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05); 
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1); 
+    --border-radius-main: 16px;    
+}
+
+/* ============================================
+   2. ESTILOS GENERALES
+   ============================================ */
 body {
     margin: 0;
     height: 100%;
-    background-image: url("../Imágenes/Logopaginaweb.png");
+    background-color: var(--bg-main); 
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
 }
 
-header {
-    background-image: url("../Imágenes/cesped.webp");
-    background-size: cover;
-    height: 100px;
+/* ============================================
+   2. ESTILOS DE CABECERA (UNIVERSAL PREMIUM)
+   ============================================ */
+
+.header-universal {
+    background-color: #002d57; /* Azul oscuro premium */
     color: white;
+    padding: 15px 0;
+    border-bottom: 3px solid #00a859; /* Verde pádel en la base */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-header p {
-    margin: 0;
-    padding: 20px;
-    float: right;
-    font-size: 15px;
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header img {
-    width: 20px;
-    height: 20px;
-}
-
-.logo {
+/* Estilo del Logo */
+.header-logo img {
+    height: 85px; 
     width: auto;
-    height: 80px;
-    margin: 10px;
-    float: left;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.header-logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Contenedor de Información a la derecha */
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icon {
+    font-size: 1.4rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+}
+
+.info-texts {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00d1ff; /* Azul brillante para títulos */
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.info-sub {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #f0f0f0;
+    font-weight: 500;
+}
+
+.info-divider {
+    width: 1px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- RESPONSIVE DE CABECERA --- */
+@media (max-width: 850px) {
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .header-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .info-divider {
+        display: none;
+    }
+
+    .info-block {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .header-logo img {
+        height: 70px;
+    }
 }
 
 footer {
@@ -42,280 +150,185 @@ footer {
 
 #contenedor {
     text-align: center;
-    background-color: lightblue;
+    background-color: #e2e8f0; /* Fondo más suave para el menú */
+    padding: 10px 0;
 }
 
+/* ============================================
+   3. MENÚ DE NAVEGACIÓN (MODERNO)
+   ============================================ */
 #menu {
-    margin: auto;
+    background-color: #003d7a; /* Un azul un poco más vibrante que la cabecera */
     display: flex;
-    justify-content: space-around;
-    margin-left: 20%;
-    margin-right: 20%;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #menu a {
-    color: black;
-    text-align: center;
-    padding: 14px;
+    color: white;
     text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
 }
 
 #menu a:hover {
-    scale: 120%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #00d1ff; /* El mismo azul brillante de los títulos de la cabecera */
+    border-bottom: 3px solid #00a859; /* Verde pádel al pasar el ratón */
 }
 
-#recuadro {
-    background-color: rgb(240, 251, 255);
+/* Clase para la página donde estás actualmente */
+#menu a.activo {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #00d1ff;
+    border-bottom: 3px solid #00a859;
+}
+
+/* Responsive para el menú */
+@media (max-width: 768px) {
+    #menu {
+        flex-direction: column;
+    }
+    #menu a {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
+/* ============================================
+   3. RECUADROS PRINCIPALES (Efecto Premium)
+   ============================================ */
+#recuadro, #recuadroreserva, #recuadroregistro, .login, #formclases, #recuadroranking, #recuadrocontacto {
+    background-color: var(--card-bg) !important;
     width: 70%;
-    margin: auto;
-    padding: 20px;
+    margin: 30px auto;
+    padding: 30px;
     text-align: left;
-    font-family: Arial, sans-serif;
     font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: calc(100vh - 100px - 60px - 40px);
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.03);
+    min-height: calc(100vh - 100px - 60px - 100px);
 }
 
-#menu .activo {
-    color: green;
-    border-radius: 10px;
+/* ============================================
+   ESTILO DE TÍTULOS (Sencillo y Elegante)
+   ============================================ */
+#recuadro h1, #recuadro h2, #recuadro h3 {
+    font-style: normal !important; /* Mantenemos fuera la cursiva antigua */
+    color: var(--primary-blue);
+    font-weight: 700;
+    letter-spacing: normal; /* Sin separaciones raras */
 }
 
-/* Estilos para la página de información */
-#recuadroinfo {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    /* separación entre los dos bloques */
-}
-
-#informacion {
-    margin: 0;
-    justify-content: space-around;
-    padding: 5px;
-    width: 35%;
-}
-
-#informacion a {
-    background-color: lightblue;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    width: 80%;
-    display: inline-block;
-    padding: 5px;
-    margin: 1px;
-}
-
-#informacion a:hover {
-    background-color: deepskyblue;
-}
-
-#parrafito {
-    font-weight: bold;
-    text-decoration: underline;
-    width: 80%;
+/* Título principal de la página (ej: Clases de Padel) */
+#recuadro h1 {
     text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
-#informacion .activo {
-    background-color: deepskyblue;
-    border-radius: 10px;
-}
-
-.contenido {
-    flex: 1;
-    /* ocupa todo el espacio restante */
-}
-
-.contenido h2 {
-    background-color: rgb(41, 240, 141);
-    padding: 10px;
-    padding-left: 20px;
-}
-
-/* Estilos para la página de contacto */
-#recuadrocontacto {
-    background-color: rgb(194, 231, 245);
-    flex: 1;
-    height: auto;
-    margin: auto;
-    padding: 20px;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.fila {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    margin-left: 15%;
-}
-
-.fila label {
-    width: 120px;
-    /* ancho fijo para alinear */
-    font-weight: bold;
-}
-
-.fila input {
-    width: 40%;
-    padding: 6px;
-    font-size: 16px;
-}
-
-/* Fila del mensaje: label arriba, textarea debajo */
-.fila-mensaje {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-}
-
-.fila-mensaje label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-left: 15%;
-}
-
-.fila-mensaje textarea {
-    height: 120px;
-    padding: 6px;
-    resize: vertical;
-    font-size: 16px;
-}
-
-#recuadrocontacto button {
-    width: 100px;
-    padding: 10px;
-    background-color: #085fe2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 45%;
-}
-
-.asterisco {
-    color: red;
-    display: inline;
-    font-weight: bold;
-    margin-left: 2px;
-}
-
-#recuadrocontacto button:hover {
-    background-color: #004bb5;
-}
-
-/* Estilos para la pagina de anulaciones de reservas*/
-.advertencia {
-    text-align: center;
-    color: red;
-    font-weight: bold;
-    font-style: italic;
-}
-
-/*Estilos para la página de normas*/
-.normitas {
-    margin-left: 5%;
-}
-
-/* Estilos para la página de inicio de sesión*/
-.login {
-    margin-left: 28%;
-    width: 40%;
-    background-color: #c9d9ee;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 3%;
-    padding: 20px;
-    height: auto;
-}
-
+/* Subtítulos de texto (ej: Niveles de Clases, Horarios) */
 #recuadro h2 {
-    text-align: center;
-    font-style: italic;
+    text-align: left;
+    font-size: 24px;
+    text-transform: none; /* Texto normal, sin obligar mayúsculas */
+    margin-top: 40px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E2E8F0; /* Línea separadora gris muy suave de lado a lado */
 }
 
+/* Títulos de formularios (ej: Formulario de inscripción) */
+#recuadro h3 {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border-bottom: none; /* Limpio, sin líneas */
+}
+
+/* Limpiamos las rayitas azules por si se ha quedado alguna colgada */
+#recuadro h2::after, #recuadro h3::after {
+    display: none !important;
+}
+
+/* ============================================
+   4. BOTONES GLOBALES
+   ============================================ */
+button {
+    background-color: var(--primary-blue) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 10px rgba(10, 88, 202, 0.3) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(10, 88, 202, 0.4) !important;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ============================================
+   5. PÁGINAS ESPECÍFICAS (Login, Registro, etc)
+   ============================================ */
+/* Login */
+.login {
+    width: 40%;
+    margin-top: 5%;
+}
 .login label {
     font-weight: bold;
-    font-size: 18px;
     text-align: center;
+    display: block;
 }
-
 .login input {
     width: 80%;
-    padding: 8px;
-    margin: 10px 0;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    margin-left: 8%;
+    font-family: 'Montserrat', sans-serif;
 }
-
 .login button {
-    width: 30%;
-    padding: 10px;
-    background-color: #085fe2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 34%;
-    font-size: 18px;
-    font-weight: bold;
-}
-.login button a {
-    color: white;
-    text-decoration: none;
-}
-
-.login button:hover {
-    background-color: #1e447a;
-}
-.login p {
-    text-align: center;
-    font-size: 16px;
-    font-style: italic;
+    width: 40%;
+    padding: 12px;
+    margin: 15px auto;
+    display: block;
 }
 .recordarme {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-left: 38%;
 }
-
-/* Anula los márgenes que tu CSS aplica a TODOS los inputs */
 .recordarme input {
     width: auto;
     margin: 0;
-    padding: 0;
 }
-.recordarme span {
-    font-weight: bold;
-    font-size: 16px;
-}
-/* Estilos para la página de registro */
+
+/* Registro */
 #recuadroregistro {
-    background-color: #c9d9ee;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 3%;
-    padding: 10px;
-    width: 90%;
-    height: auto;
-}
-.lineas{
-    width: 100%;
+    width: 80%;
 }
 .titulitos {
     font-size: 20px;
@@ -323,1164 +336,902 @@ form {
     margin-top: 15px;
     margin-bottom: 10px;
     text-decoration: underline;
-    color: red;
-}
-.emoji{
-    display: inline-block;
-    margin-right: 8px;
-}
-#recuadroregistro p {
-    font-size: 16px;
-    margin-bottom: 10px;
+    color: var(--primary-blue);
 }
 .alineacion {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 12px;
-    margin-left: 25%;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-left: 15%;
 }
-
 .alineacion label {
-    width: 180px;
+    width: 200px;
     font-weight: bold;
-    font-size: 18px;
     text-align: right;
-    margin-right: 10px;
+    margin-right: 15px;
 }
-
-.alineacion input{
+.alineacion input, .alineacion select {
     width: 40%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
-.alineacion select {
-    width: 20%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-.alineacion input[type="file"] {
-    border: none;
-    width: auto;
-}
-#guia-nivel { 
-    margin-left: 8%;
-    width: 90%;
-    font-size: 15px;
-}
-
-#titulo-guia {
-    font-weight: bold;
-    cursor: pointer;
-    color: #085fe2;
-    margin-left: 20%;
-}
-#contenido-guia {
-    margin-top: 10px;
-    background-color: #eef4ff;
-    padding: 15px;
-    border-radius: 10px;
-    width: 90%;
-}
-.oculto {
-    display: none;
-}
-#contenido-guia h3 {
-    text-align: center;
-    color: blue;
-    font-size: 20px;
-}
-#contenido-guia strong { 
-    color: #085fe2;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-#contenido-guia p {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    font-size: 14px;
-}
-
-/* Columna izquierda */
-.col-izq {
-    display: flex;
-    flex-direction: column;
-    gap: 160px; /* distancia entre Imagen y Sustituir */
-    width: 150px;
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 35px;        
-}
-
-/* Columna central */
-.col-centro {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* FILA 1: preview + formato */
-.fila-preview {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Recuadro de preview */
-#preview-imagen {
-    width: 150px;
-    height: 150px;
-    background: #e6e6e6;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#preview-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Texto formato aceptado */
-.nota {
-    font-size: 14px;
-    color: #444;
-    font-style: italic;
-}
-
-/*Botón principal de registro*/
-
 #recuadroregistro button {
-    width: 15%;
-    padding: 10px;
-    background-color: #085fe2;
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 43%;
-    font-size: 18px;
-    font-weight: bold;
-}
-#recuadroregistro button:hover {
-    background-color: #1e447a;
+    width: 200px;
+    padding: 12px;
+    margin: 20px auto;
+    display: block;
 }
 
-/* Estilos para la página de clases */
-
-#clases{
-    text-align: left;
-    margin-left: 8%;
-    margin-right: 8%;
-}
-#clases p{
-    font-size: 18px;
-    text-align: justify;
-}
-#clases h1,h2{
-    text-align: center;
-}
-#clases ul li{
-    margin-bottom: 10px; 
-}
-.pa{
-    color: #085fe2;
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
-}
-/*Estilos para formulario de clases*/
-#formclases h3 {
-    text-align: center;
+/* ============================================
+   FORMULARIOS (Contacto y Clases)
+   ============================================ */
+.fila, .fila-mensaje {
+    display: flex;
+    align-items: flex-start; /* Mejor para que el label se quede arriba si hay un textarea */
     margin-bottom: 20px;
+    margin-left: 10%; 
+}
+
+.fila label, .fila-mensaje label {
+    width: 200px; /* Lo hacemos más ancho para que quepa "Correo electrónico" sin romper */
     font-weight: bold;
-}
-#formclases{
-    margin-top: 50px;
-    background-color: rgb(194, 231, 245);
-    padding: 10px;
-    width: 70%;
-    margin-left: 14%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-form {
-    display: flex;
-    flex-direction: column;
+    text-align: right; /* Alineamos los textos a la derecha para que queden pegados al input */
+    margin-right: 20px;
+    padding-top: 10px; /* Lo bajamos un pelín para que se alinee con el texto de dentro del input */
+    color: var(--text-dark);
 }
 
-.fila {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    margin-left: 15%;
+.fila input, .fila-mensaje textarea, .fila select {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.fila label {
-    width: 120px;
-    /* ancho fijo para alinear */
-    font-weight: bold;
-}
-
-.fila input {
-    width: 40%;
-    padding: 6px;
-    font-size: 16px;
-}
-
-/* Fila del mensaje: label arriba, textarea debajo */
-.fila-mensaje {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-}
-
-.fila-mensaje label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-left: 15%;
+/* Efecto focus: cuando el usuario pincha en el input para escribir */
+.fila input:focus, .fila-mensaje textarea:focus, .fila select:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 88, 202, 0.1);
 }
 
 .fila-mensaje textarea {
     height: 120px;
-    padding: 6px;
     resize: vertical;
-    font-size: 16px;
 }
 
-#formclases button {
-    width: 100px;
-    padding: 10px;
-    background-color: #085fe2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 45%;
-}
-
-#formclases button:hover {
-    background-color: #004bb5;
-}
-
-/* Estilos para la página de reservas */
-#recuadroreserva{
-    background-color: rgb(240, 251, 255);
-    width: 70%;
-    margin: auto;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: calc(100vh - 100px - 60px - 40px);
-}
-#h3reserva {
-    text-align: left;
-    font-style: normal;
-    margin-left: 0;
-    margin-top: 0;
-    background-color: rgb(4, 85, 112);
-    color: white;
-    padding: 10px;
-}
-#recuadroreserva p {
-    margin-left: 17px;
-    margin-right: 6px;
-    margin-top: 0;
-    font-size: 16px;
-}
-
-#cuadrarfechas{
-    margin-left: 17px;
-}
-
-.fecha{
-    height: 50px;
-    background-color: lightgray;
-    border-radius: 10px;
-    width: 19.5%;
-    display: inline-block;
-    text-align: center;
-    line-height: 50px;
+/* Arreglo MÁGICO del asterisco: lo convertimos en elemento en línea para que no salte de párrafo */
+.asterisco {
+    display: inline;
+    color: #e11d48; /* Un rojo elegante */
     font-weight: bold;
-    cursor: pointer;
+    margin-right: 3px;
 }
 
-.fecha:hover{
-    font-size: 22px; 
-    transition: font-size 0.2s ease;
+/* Arreglo del botón para centrarlo y darle tamaño */
+#formclases button, #recuadrocontacto button {
+    display: block;
+    width: 200px;
+    margin: 30px auto 10px auto;
+    padding: 14px;
+    font-size: 16px;
 }
 
-.fecha a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;      /* Ocupa toda la caja */
-    width: 100%;       /* Ocupa toda la caja */
-    color: black;
-    text-decoration: none;
-    border-radius: 10px;
+/* ============================================
+   6. MÓDULO DE RESERVAS (SOLO RESERVA.PHP)
+   ============================================ */
+
+/* Usamos el símbolo ">" para que ESTO SOLO AFECTE a reserva.php
+   y no rompa nada en confirmacion1.php */
+#recuadroreserva > #cuadrarfechas {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin: 20px 0 30px 0 !important;
 }
 
-.fecha a.activo {
-    background-color: #0077cc;
-    color: white;
+/* LOS 5 BOTONES DE LOS DÍAS */
+#recuadroreserva > #cuadrarfechas > .fecha {
+    flex: 1 1 0% !important; /* Se reparten el 100% del ancho exactamente igual */
+    min-width: 110px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+    overflow: hidden !important; /* El azul activo rellenará las esquinas */
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important; 
 }
 
-/* Estilos para la selección de pistas */
-#cuadrarpistas {
-    margin-top: 20px;
-    margin-left: 17px;
-    text-align: center;
+#recuadroreserva > #cuadrarfechas > .fecha:hover {
+    border-color: #0A58CA !important;
+}
+
+#recuadroreserva > #cuadrarfechas > .fecha a {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 15px 2px !important;
+    color: #1e293b !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+    line-height: 1.2 !important;
+}
+
+#recuadroreserva > #cuadrarfechas > .fecha a.activo {
+    background-color: #0A58CA !important;
+    color: #ffffff !important;
+}
+
+/* LAS PISTAS (Ocupando la fila de debajo) */
+#recuadroreserva > #cuadrarfechas > #cuadrarpistas {
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 0 0 100% !important; /* Obliga a saltar a la fila de abajo separándose de los días */
+    justify-content: space-between !important;
+    gap: 20px !important;
+    margin-top: 15px !important;
 }
 
 .pistas {
-    height: 100%;
-    background-color: rgb(110, 172, 230);
-    border-radius: 10px;
-    width: 40%;
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    margin: 10px;
-    /*min-height: calc(100vh - 100px - 60px - 40px);*/
+    flex: 1 !important;
+    background-color: #F8FAFC !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    border: 1px solid #E2E8F0 !important;
+    box-sizing: border-box !important;
 }
 
-.infopartida{
-    background-color: rgb(194, 231, 245);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    height: 40px;
-    display: grid; 
-    grid-template-columns: 80px 1fr 180px;
-    cursor: pointer;
+.pistas h2 {
+    text-align: center !important;
+    border-bottom: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    color: #0A58CA !important;
 }
 
-.infopartida a {
-    text-decoration: none;
-    color: black;
-    display: contents; /* Permite que los elementos hijos ocupen todo el espacio */
-}
-.infopartida:hover {
-    background-color: rgb(170, 215, 235);
-}
-
-.jugadorespartida {
-    margin-left: 35px;
-    margin-right: 15px;
-    margin-bottom: 20px;
-    display: flex;
-}
-.jugadorpartida img {
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-    margin-right: 5px;
-    border-radius: 10px;
-}
-.estadopista{
-    margin-left: 15px;
-    font-size: 20px;
+/* Tarjetas de partidas individuales */
+.infopartida {
+    background: #ffffff !important; 
+    border: 1px solid #E2E8F0 !important; 
+    margin-bottom: 15px !important; 
+    padding: 15px !important; 
+    border-radius: 12px !important;
+    display: grid !important; 
+    grid-template-columns: 80px 1fr 140px !important; 
+    align-items: center !important; 
+    transition: all 0.3s ease !important; 
+    cursor: pointer !important; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
 }
 
-
-
-
-/*Ejemplo de otro estilo para la reserva*/
-
-.infopartida2 {
-    background-color: rgb(194, 231, 245);
-    margin: 10px ;
-    padding: 10px;
-    border-radius: 10px;
-
-    display: grid;
-    grid-template-columns: 80px 1fr 120px; /* HORA | JUGADORES | ESTADO */
-    align-items: center;
-    gap: 10px;
-
-    transition: background-color 0.2s ease;
-    cursor: pointer;
+.infopartida:hover { 
+    transform: translateY(-2px) !important; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important; 
+    border-color: #0A58CA !important; 
 }
 
-.infopartida2:hover {
-    background-color: rgb(170, 215, 235);
+.horas b { font-size: 18px !important; color: #0A58CA !important; }
+.jugadorespartida { display: flex !important; gap: 8px !important; justify-content: center !important; }
+.jugadorpartida img { width: 35px !important; height: 35px !important; border-radius: 50% !important; object-fit: cover !important; border: 2px solid white !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; }
+
+.estadopista .tipoestado { 
+    display: block !important; 
+    text-align: center !important; 
+    padding: 8px !important; 
+    border-radius: 8px !important; 
+    font-weight: bold !important; 
+    font-size: 13px !important; 
+    color: white !important; 
+    border: none !important;
 }
 
-.infopartida2 a {
-    display: contents; /* hace clicable todo el bloque sin romper el grid */
-    text-decoration: none;
-    color: inherit;
+/* ============================================
+   DISEÑO CONFIRMACIÓN Y RESERVAS
+   ============================================ */
+
+/* 1. El Recuadro Principal (70% en PC) */
+#recuadroreserva {
+    width: 70% !important; 
+    margin: 40px auto !important; 
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    display: block !important; /* Volvemos al formato bloque para que no encoja nada */
+    box-sizing: border-box; /* Para que el padding no rompa los anchos */
 }
 
-/* HORA */
-.horas2 b {
-    font-size: 22px;
-}
-
-/* JUGADORES EN 2 COLUMNAS */
-.jugadorespartida2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 10px;
-}
-
-.jugadorpartida2 {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.jugadorpartida2 img {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-}
-
-.jugadoralias2 {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* ESTADO */
-.estadopista2 .tipoestado {
-    background-color: rgb(0, 150, 0);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-
-
-
-/*Ejemplo de otro estilo para la reserva*/
-
-/* CONTENEDOR PRINCIPAL */
-.infopartida3 {
-    /*background: rgb(194, 231, 245);
-    padding: 15px;
-    border-radius: 12px;
-    margin: 15px ;
-    width: 100%;
+/* 2. La fila de los días (En línea horizontal perfecta y CENTRADA) */
+#dias {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    margin: 0 auto 30px auto !important;
+    width: 100% !important;
     box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;*/
-    background-color: rgb(194, 231, 245);
-    margin: 10px ;
-    padding: 10px;
-    border-radius: 10px;;
-    display: flex;
-    grid-template-columns: 80px 1fr 120px; /* HORA | JUGADORES | ESTADO */
-    align-items: center;
-    gap: 10px;
-    flex-direction: column;
-    cursor: pointer;
-}
-.infopartida3:hover {
-    background-color: rgb(170, 215, 235);
 }
 
-.infopartida3 a {
-    display: contents; /* hace clicable todo el bloque sin romper el grid */
+#dias .fecha {
+    flex: 1 !important; 
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    height: auto !important; /* MATAMOS el height: 50px del PHP */
+    transition: all 0.3s ease;
+}
+
+#dias .fecha a {
+    display: flex !important; /* Flexbox para centrado absoluto */
+    justify-content: center !important; /* Centrado horizontal */
+    align-items: center !important; /* Centrado vertical */
+    width: 100% !important;
+    height: 100% !important;
+    padding: 15px 5px !important;
+    line-height: normal !important; /* MATAMOS el line-height: 50px del PHP */
     text-decoration: none;
-    color: inherit;
+    color: #002d57;
+    font-weight: 700;
+    font-size: 15px;
+    white-space: nowrap; 
 }
 
-/* HORA ARRIBA */
-.horas3 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+#dias .fecha:hover:not([style*="background-color"]) {
+    background-color: #e2e8f0;
+}
+
+/* Día seleccionado */
+#dias .fecha[style*="background-color"] {
+    background-color: #0A58CA !important; 
+    border-color: #0A58CA !important;
+}
+#dias .fecha[style*="background-color"] a {
+    color: white !important;
+}
+
+/*  esponsive: En móviles y tablets el 70% pasa a ser un 95% */
+@media (max-width: 900px) {
+    #recuadroreserva { 
+        width: 95% !important; 
+        padding: 15px; 
+    }
+    #dias { 
+        overflow-x: auto; /* Permite scroll horizontal si los días no caben */
+    } 
+}
+
+/* ============================================
+   7. ADAPTACIÓN PARA PORTÁTILES (MÁXIMO 1366px)
+   ============================================ */
+@media (max-width: 1366px) {
+    #recuadro, #recuadroreserva, #recuadroregistro, .login {
+        width: 95% !important; /* Le damos más aire al recuadro blanco para que quepan las fechas largas */
+    }
     
+    #recuadroreserva > #cuadrarfechas > .fecha a {
+        font-size: 12px !important; /* Letra un pelín más pequeña para evitar que parta "miércoles" */
+        padding: 10px 2px !important;
+    }
 }
 
-/* CUADRÍCULA 2×2 DE JUGADORES */
-.jugadorespartida3 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px 25px;
+/* ============================================
+   7. ARREGLOS ESPECÍFICOS: REGISTRO (GUÍA Y AVATAR)
+   ============================================ */
+
+/* --- Guía de Niveles --- */
+#titulo-guia {
+    color: var(--primary-blue);
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 15%; /* Para alinearlo con los formularios */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+#titulo-guia:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+.oculto {
+    display: none !important;
+}
+#contenido-guia {
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: var(--card-bg-alt);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
-.jugadorpartida3 {
+/* --- Sección Avatar --- */
+/* Modificamos la alineación solo para el contenedor del avatar */
+.alineacion .col-izq {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.jugadorpartida3 img {
-    width: 100px;
-    height: 80px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.jugadoralias3 {
-    margin-top: 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* ESTADO ABAJO (solo texto) */
-.estadopista3 {
-    margin-top: 10px;
-}
-
-.tipoestado {
-    background: rgb(0, 150, 0);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/*Estilos para la pagina de confirmación de reserva*/
-
-#infopista{
-    background-color: rgb(194, 231, 245);
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    width: 31%;
-    float: left;
-
-    /* CAMBIOS IMPORTANTES */
-    display: block;      /* antes grid */
-    height: auto;        /* antes 250px */
-}
-#infopista .foto-pista-contenedor {
-    height: 230px;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-#infopista .foto-pista-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-#infopista img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-#infopista p{
-    margin-top: 20px;
-    font-size: 22px;
-}
-
-#infohorario{
-    background-color: rgb(194, 231, 245);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    height: 250px;
-    display: grid; 
-    width: 31%;
-    float: left;
-}
-
-#infohorario .finpartida {
-    font-weight: bold;
-    font-size: 14px;
-}
-#infohorario p{
-    margin-top: 20px;
-    font-size: 22px;
-}
-#infohorario p b{
-    color: green;
-}
-#infoestados{
-    background-color: rgb(194, 231, 245);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    height: 250px;
-    display: grid; 
-    width: 31%;
-}
-
-#infoestados p{
-    margin-top: 20px;
-    font-size: 22px;
-}
-
-#infoestados .estado{
-    font-size: 20px;
-}
-
-#infoestados .numjugadores{
-    font-size: 14px;
-}
-
-#jugadoresreserva {
-    background-color: rgb(194, 231, 245);
-    padding: 15px;
-    border-radius: 10px;
+    width: 200px; /* Mismo ancho que los label normales */
+    text-align: right;
     margin-right: 15px;
+    gap: 35px; /* Espacio vertical entre 'Imagen' y 'Sustituir' */
+}
+.alineacion .col-izq label {
+    width: 100% !important;
+    margin: 0 !important;
+}
+.alineacion .col-centro {
     display: flex;
-    flex-direction: column;   /* TEXTO ARRIBA, ICONOS DEBAJO */
+    flex-direction: column;
+    gap: 15px;
+    width: 40%;
+}
+.fila-preview {
+    display: flex;
     align-items: center;
-    gap: 15px;                /* separación entre título e iconos */
+    gap: 15px;
 }
-
-/* Estilo del título */
-#jugadoresreserva h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-/* Contenedor de los iconos en línea */
-.jugadoresconfirmados {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;                /* separación entre iconos */
-    justify-content: center;
-}
-
-/* Iconos */
-.jugadorconfirma img {
-    margin-top: 20px;
-    margin-right: 30px;
-    width: 250px;
-    height: 250px;
+#preview-imagen {
+    width: 70px;
+    height: 70px;
+    border: 2px dashed #cbd5e1; /* Un borde punteado queda muy profesional */
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg-alt);
+    overflow: hidden;
+}
+#img-preview {
+    display: none; /* Oculto hasta que se sube una foto */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.nota {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+.fila-sustituir input[type="file"] {
+    width: 100% !important;
+    padding: 5px !important;
+    border: none !important; /* Quitamos el borde raro al input de archivo */
+    background: none !important;
+}
+
+/* ============================================
+   8. SECCIÓN INFORMACIÓN (Menú lateral y Contenido)
+   ============================================ */
+#recuadroinfo {
+    display: flex;
+    gap: 40px; /* Separación entre el menú y el texto */
+    align-items: flex-start; /* Para que ambos empiecen desde arriba */
+}
+
+/* --- Menú Lateral Izquierdo --- */
+#informacion {
+    width: 250px; /* Ancho fijo para el menú */
+    flex-shrink: 0; /* Evita que el menú se encoja si hay mucho texto */
+    background-color: var(--card-bg-alt);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+#informacion #parrafito {
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#informacion a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+#informacion a:hover {
+    background-color: var(--bg-main);
+    color: var(--primary-blue);
+    transform: translateX(5px); /* Pequeño efecto de desplazamiento al pasar el ratón */
+}
+
+#informacion a.activo {
+    background-color: var(--primary-blue);
+    color: white;
+    box-shadow: 0 4px 10px rgba(10, 88, 202, 0.2);
+}
+
+/* --- Contenido Derecho --- */
+.contenido {
+    flex: 1; /* Ocupa todo el espacio restante a la derecha */
+    min-width: 0; /* Evita que el texto empuje y rompa la caja */
+}
+
+.contenido h2 {
+    margin-top: 0;
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--bg-main);
+    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-#inscripcion{
-    padding: 5px;
+/* --- Mapa Responsive (De tu lista de tareas) --- */
+.contenido iframe {
+    width: 100% !important; /* El mapa ocupa todo el ancho de la columna derecha */
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
+.normitas p {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.normitas p::before {
+    content: "•";
+    color: var(--primary-blue);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* ============================================
+   TEXTOS DE ADVERTENCIA (Anulaciones y Normas)
+   ============================================ */
+.advertencia {
+    color: #e11d48; /* Un rojo intenso y moderno */
+    font-style: italic; /* Cursiva */
+    font-weight: 600; /* Un poco de negrita para que destaque más */
+    text-align: center; /* Centrado queda más profesional */
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #fff1f2; /* Un fondo rojizo muy muy clarito */
+    border-radius: 8px;
+    border-left: 4px solid #e11d48; /* Una línea roja a la izquierda */
+}
+
+/* ============================================
+   ARREGLOS ESPECÍFICOS: CONFIRMACIÓN DE RESERVA
+   ============================================ */
+
+/* 1. Centrar los títulos principales ("Pista 1", "Jugadores...", etc.) */
+#infopista h3, #infohorario h3, #infoestados h3, #jugadoresreserva h3, #inscripcion h3 {
+    text-align: center !important; 
+    margin-top: 0; 
+    margin-bottom: 15px; /* Un poco de aire por debajo */
+    border-bottom: none; 
+    width: 100%; /* ¡CLAVE! Obliga a que "Pista 1" no se vaya a la izquierda */
+}
+
+/* 2. Cajas Superiores (Pista, Horario y Estado) a la MISMA ALTURA */
+#infopista, #infohorario, #infoestados {
+    float: none !important; /* Anula cualquier float integrado en el PHP */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* "Pista 1", "Inicio" y "Estado" clavados arriba del todo */
+    align-items: center !important; /* Centra todo horizontalmente */
+    text-align: center !important; /* Centra textos sueltos */
+    min-height: 280px !important; /* Obliga a que las 3 cajas midan lo mismo */
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
+
+#infohorario p, #infoestados p {
+    margin: 0 !important; 
+    text-align: center !important;
+    width: 100% !important; 
+}
+
+/* Forzamos a que las palabras en negrita ("Inicio:" y "Fin:") actúen como bloques centrados */
+#infohorario b, #infoestados b, #infohorario strong {
+    display: block !important;
+    margin-top: 20px !important; /* Le da aire por arriba, separando el "Fin" del "Inicio" */
+    margin-bottom: 5px !important;
+    text-align: center !important;
+}
+
+/* Bajamos un poquito el texto de "0/4 jugadores" para que no quede pegado a "Estado:" */
+#infoestados > *:last-child {
+    margin-top: 30px !important;
+    font-size: 18px !important; /* Un poco más grande para que destaque */
+}
+
+/* 3. Centrar las fotos de los jugadores confirmados */
+.jugadoresconfirmados {
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+/* 4. Alinear el botón con los selectores (Misma altura abajo) */
 .inscripciones {
     display: flex;
+    align-items: flex-end !important; 
+    justify-content: space-around;
     gap: 15px;
-    background-color: rgb(194, 231, 245);
-    padding: 5px;
-    width: 97%;
-    border-radius: 10px;
-    padding-left: 25px;
-    margin-bottom: 15px;
 }
 
-.columna{
-    padding: 10px;
-    border-radius: 10px;
-    width: 30%;
-    height: 100px;
+.columna {
     text-align: center;
-    padding-top: 50px;
+    font-weight: 600;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
 }
 
-.columna select {
-    margin-top: 10px;
-    width: 50%;
-    padding: 5px;
-    font-size: 16px;
-}
-
-.columna select[id="nivel"]{
-    width: 60%;
+.columna select, .columna button {
+    width: 100% !important; 
+    max-width: 250px; 
+    margin: 10px auto 0 auto !important; 
+    box-sizing: border-box;
+    height: 45px !important; 
 }
 
 .columna button {
-    margin-top: 10px;
-    width: 50%;
-    padding: 8px;
-    background-color: #085fe2;
+    padding: 0 !important; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ============================================
+   9. RANKING DE JUGADORES (DISEÑO PREMIUM)
+   ============================================ */
+
+.contenedor-jugadores {
+    margin-top: 20px;
+}
+
+.jugador-card {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    margin: 15px auto;
+    width: 90%;
+    height: 100px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+/* Efecto Hover: Elevación y Borde Azul */
+.jugador-card:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-blue);
+    z-index: 10;
+}
+
+/* BLOQUE POSICIÓN (Izquierda) */
+.jugador-posicion-box {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 800;
+    background: #f8fafc;
+    color: #94a3b8;
+    border-right: 1px solid #e2e8f0;
+}
+
+/* Especial para el TOP 3 */
+.jugador-card:nth-child(1) .jugador-posicion-box { color: #fbbf24; background: #fffbeb; } /* Oro */
+.jugador-card:nth-child(2) .jugador-posicion-box { color: #94a3b8; background: #f1f5f9; } /* Plata */
+.jugador-card:nth-child(3) .jugador-posicion-box { color: #b45309; background: #fff7ed; } /* Bronce */
+
+/* FOTO DEL JUGADOR */
+.jugador-imagen img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* BLOQUE NIVEL (Derecha de la foto) */
+.jugador-nivel-box {
+    width: 90px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1e293b;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 20px;
 }
 
-.columna button:hover {
-    background-color: #1e447a;
+.jugador-nivel-box::after {
+    content: "NIVEL";
+    font-size: 10px;
+    opacity: 0.7;
+    letter-spacing: 1px;
 }
 
-
-
-
-/*Estilos para la página de ranking*/
-
-#recuadroranking{
-    background-color: rgb(240, 251, 255);
-    width: 70%;
-    margin: auto;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: calc(100vh - 100px - 60px - 40px);
+/* INFORMACIÓN DEL JUGADOR */
+.jugador-info {
+    flex: 1;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ================================
-   📱 MÓVIL (pantallas pequeñas)
-   ================================ */
-@media (max-width: 600px) {
-
-    /* El recuadro ocupa todo el ancho */
-    #recuadro {
-        width: 95%;
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    /* Menú en columna */
-    #menu {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    #menu a {
-        padding: 12px;
-        font-size: 18px;
-        display: block;
-    }
-
-    /* Panel de jugador en 1 columna */
-    .panel-contenedor {
-        flex-direction: column !important;
-    }
-
-    .panel-izquierda,
-    .panel-derecha {
-        width: 100% !important;
-    }
-
-    /* Tarjetas más compactas */
-    .panel-box {
-        padding: 15px;
-    }
-
-    /* Títulos más pequeños */
-    #panel-jugador h1 {
-        font-size: 26px;
-    }
+.jugador-nombre {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 4px;
 }
 
-/* ================================
-   📲 TABLET (pantallas medianas)
-   ================================ */
-@media (max-width: 900px) {
-
-    #recuadro {
-        width: 90%;
-    }
-
-    /* Menú más grande y centrado */
-    #menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    #menu a {
-        padding: 10px 15px;
-        font-size: 18px;
-    }
-
-    /* Panel en 1 columna si no cabe */
-    .panel-contenedor {
-        flex-direction: column;
-    }
-
-    .panel-izquierda,
-    .panel-derecha {
-        width: 100%;
-    }
+.info-izquierda p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 2px 0;
 }
 
-/* ================================
-   💻 PC (pantallas grandes)
-   ================================ */
-@media (min-width: 901px) {
-
-    /* Mantener diseño original */
-    .panel-contenedor {
-        flex-direction: row;
-    }
-
-    .panel-izquierda {
-        width: 65%;
-    }
-
-    .panel-derecha {
-        width: 35%;
-    }
+.info-derecha {
+    text-align: right;
+    min-width: 120px; /* Evita que el cuadro salte si el texto es largo */
 }
 
-/* ========================================================
-   📱 RESPONSIVE RESERVA.PHP: TABLET (769px a 1024px)
-   ======================================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-    #recuadroreserva {
-        width: 95% !important;
-    }
-
-    /* Fechas: Permitimos que envuelvan si no caben */
-    #cuadrarfechas {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        margin-left: 0 !important;
-    }
-
-    .fecha {
-        width: 30% !important; /* 3 por fila en tablet */
-        height: auto !important;
-        line-height: normal !important;
-        padding: 15px 5px !important;
-    }
-
-    /* Pistas: Las dejamos una al lado de la otra pero con ancho ajustado */
-    #cuadrarpistas {
-        display: flex !important;
-        justify-content: space-around !important;
-        margin-left: 0 !important;
-    }
-
-    .pistas {
-        width: 48% !important;
-        margin: 5px !important;
-    }
-
-    /* Ajuste de la fila de partida */
-    .infopartida {
-        grid-template-columns: 70px 1fr 100px !important; /* Estrechamos columnas */
-        gap: 5px !important;
-    }
-
-    .jugadorpartida img {
-        width: 35px !important;
-        height: 35px !important;
-    }
+.info-derecha p {
+    margin: 0;
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* ========================================================
-   📲 RESPONSIVE RESERVA.PHP: MÓVIL (Hasta 768px)
-   ======================================================== */
+.info-derecha b {
+    font-size: 14px;
+    color: #1e293b;
+    display: block;
+    margin-top: 2px;
+}
+
+/* FOTO DEL JUGADOR - AJUSTE MILIMÉTRICO */
+.jugador-imagen {
+    width: 100px;
+    height: 100px; /* Forzamos la misma altura que los bloques laterales */
+    display: flex;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none; /* Eliminamos cualquier borde que pueda empujarla */
+}
+
+.jugador-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Evita el espacio reservado para letras debajo de imágenes */
+    margin: 0;
+    padding: 0;
+}
+
+/* BLOQUES LATERALES (Ajuste de bordes) */
+.jugador-posicion-box, 
+.jugador-nivel-box {
+    width: 100px;
+    height: 100px; /* Aseguramos que midan EXACTAMENTE lo mismo */
+    display: flex;
+    flex-direction: column; /* Para que el texto "NIVEL" quede debajo si lo usas */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box; /* Crucial para que el padding/border no sume tamaño extra */
+}
+
+/* Adaptación para móviles */
 @media (max-width: 768px) {
-    #recuadroreserva {
-        width: 98% !important;
-        padding: 5px !important;
-    }
-
-    #h3reserva {
-        font-size: 18px !important;
-        padding: 15px !important;
-    }
-
-    /* FECHAS: Lista vertical para tocar fácil con el dedo */
-    #cuadrarfechas {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        margin-left: 0 !important;
-        padding: 0 10px !important;
-    }
-
-    .fecha {
-        width: 100% !important;
-        border-radius: 8px !important;
-    }
-
-    /* PISTAS: Una debajo de otra */
-    #cuadrarpistas {
-        display: flex !important;
-        flex-direction: column !important;
-        margin-left: 0 !important;
-        gap: 20px !important;
-    }
-
-    .pistas {
-        width: 100% !important;
-        margin: 0 !important;
-    }
-
-    /* FILA DE PARTIDA: En móvil la hacemos vertical para que se vea todo */
-    .infopartida {
-        display: flex !important;
-        flex-direction: column !important;
-        height: auto !important;
-        padding: 15px !important;
-        gap: 15px !important;
-        align-items: center !important;
-    }
-
-    .horas b {
-        font-size: 22px !important;
-    }
-
-    /* Los 4 avatares en fila centrados */
-    .jugadorespartida {
-        margin: 0 !important;
-        justify-content: center !important;
-        gap: 10px !important;
-    }
-
-    .jugadorpartida img {
-        width: 50px !important;
-        height: 50px !important;
-    }
-
-    /* El botón de estado al 100% de ancho */
-    .estadopista {
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
-
-    .tipoestado {
-        display: block !important;
-        width: 100% !important;
-        padding: 10px 0 !important;
-        text-align: center !important;
-    }
+    .jugador-card { height: auto; flex-direction: column; text-align: center; width: 100%; }
+    .jugador-posicion-box, .jugador-nivel-box, .jugador-imagen img { width: 100%; height: 50px; border: none; }
+    .jugador-imagen img { height: 150px; }
+    .jugador-info { flex-direction: column; padding: 15px; gap: 10px; }
+    .info-derecha { text-align: center; }
 }
 
-/* Estilos para la página de connfirmacion */
 /* ========================================================
-   📱 RESPONSIVE: TABLET (Pantallas de 769px a 1024px)
+   📱 RESPONSIVE GLOBAL (TABLETS Y MÓVILES)
    ======================================================== */
+
+/* --- TABLET (769px a 1024px) --- */
 @media (min-width: 769px) and (max-width: 1024px) {
-    #recuadroreserva {
-        width: 95% !important;
-    }
-
-    /* 1. DÍAS: Hacemos que salten de línea si no caben y ajustamos altura */
-    #dias {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        height: auto !important;
-    }
-    .fecha {
-        width: 30% !important; /* Ocupan 1/3 para repartirse bien */
-        min-width: 150px !important;
-        height: auto !important;
-        line-height: normal !important;
-        padding: 12px 5px !important;
-    }
-
-    /* 2. PISTA, HORARIO, ESTADO: Los apilamos centrados porque 3 en fila no caben */
-    #cuadrarfechas {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+    #recuadro, #recuadroreserva, #recuadroregistro, .login {
+        width: 90% !important;
     }
     
-    #infopista, #infohorario, #infoestados {
-        width: 80% !important; /* Un poco más estrechos que en móvil para que quede elegante */
-        height: auto !important;
-        min-height: auto !important;
-        margin: 0 0 20px 0 !important;
-        float: none !important;
-    }
-
-    /* 3. JUGADORES: Grid 2x2 para que no se desborden del recuadro azul */
-    .jugadoresconfirmados {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px !important;
-        justify-items: center;
-        width: 100%;
-    }
+    /* Reserva.php */
+    #cuadrarfechas { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 10px !important; }
+    .fecha { width: 30% !important; height: auto !important; padding: 10px 5px !important; line-height: normal !important; }
+    .infopartida { grid-template-columns: 70px 1fr 100px !important; }
     
-    .jugadorconfirma {
-        width: 180px !important; 
-        height: 180px !important;
-        margin: 0 !important;
-    }
-
-    /* 4. INSCRIPCIÓN: Evitamos que se corten los desplegables */
-    .inscripciones {
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 20px 0 !important;
-    }
-    
-    .columna {
-        width: 80% !important;
-        text-align: center !important;
-        height: auto !important;
-        padding: 10px 0 !important;
-    }
-    
-    .columna select {
-        width: 100% !important;
-    }
+    /* Confirmacion1.php */
+    #dias { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 10px !important; }
+    #cuadrarfechas-conf { display: flex !important; flex-direction: column !important; align-items: center !important; }
+    #infopista, #infohorario, #infoestados { width: 80% !important; float: none !important; margin: 0 auto 20px auto !important; }
+    .jugadoresconfirmados { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; justify-items: center; }
 }
 
-/* ========================================================
-   📲 RESPONSIVE: MÓVIL (Pantallas hasta 768px)
-   ======================================================== */
+/* --- MÓVIL (Hasta 768px) --- */
 @media (max-width: 768px) {
-    /* Contenedor principal */
-    #recuadroreserva {
-        width: 95% !important;
-        margin: 10px auto !important;
-        padding: 10px !important;
-    }
+    /* Cabecera y Menú */
+    header { height: auto !important; display: flex !important; flex-direction: column !important; padding: 15px 5px !important; }
+    .logo { float: none !important; height: 60px !important; margin: 0 auto 10px auto !important; }
+    header p { float: none !important; text-align: center !important; width: 100% !important; }
+    #menu { flex-direction: column !important; width: 100% !important; margin: 0 !important; }
+    #menu a { border-bottom: 1px solid #cbd5e1 !important; padding: 15px !important; }
+    
+    /* Contenedores */
+    #recuadro, #recuadroreserva, #recuadroregistro, .login { width: 95% !important; padding: 15px !important; margin: 10px auto !important; }
+    .alineacion, .fila { flex-direction: column !important; margin-left: 0 !important; align-items: flex-start !important; }
+    .alineacion label, .fila label { width: 100% !important; text-align: left !important; margin-bottom: 5px !important; }
+    .alineacion input, .alineacion select, .fila input { width: 100% !important; }
+    #recuadroinfo { flex-direction: column !important; gap: 20px !important;}
+    #informacion { width: 100% !important; box-sizing: border-box;}
 
-    /* Título más adaptado */
-    #h3reserva {
-        font-size: 16px !important;
-        text-align: center;
+    /* Reserva.php - AHORA SÍ, CON MÁXIMA PRIORIDAD */
+    #recuadroreserva > #cuadrarfechas { 
+        display: flex !important; 
+        flex-direction: row !important; 
+        flex-wrap: wrap !important; /* Permite que los días salten de línea como antes */
+        gap: 10px !important; 
     }
-
-    /* FILA 1: Pista, Horario y Estado (Se apilan verticalmente) */
-    #cuadrarfechas {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+    #recuadroreserva > #cuadrarfechas > .fecha { 
+        flex: 1 1 calc(33% - 10px) !important; /* Los días se adaptan al espacio */
+        min-width: 90px !important; 
+        height: auto !important; 
+        padding: 0 !important; 
     }
-
-    #infopista, #infohorario, #infoestados {
-        width: 100% !important;
-        height: auto !important;
-        margin: 0 0 15px 0 !important;
-        float: none !important; /* Fundamental para anular el float:left de PC */
-        padding: 15px !important;
+    #recuadroreserva > #cuadrarfechas > #cuadrarpistas { 
+        width: 100% !important; /* ¡ESTO OBLIGA A LAS PISTAS A IRSE ABAJO! */
+        flex: 0 0 100% !important; 
+        display: flex !important; 
+        flex-direction: column !important; /* Pista 1 arriba, Pista 2 abajo */
+        gap: 20px !important; 
+        margin-top: 15px !important;
     }
-
-    /* FILA 2: Jugadores (Grid 2x2 para evitar el scroll lateral que tenías) */
-    .jugadoresconfirmados {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px !important;
-        justify-items: center;
+    #recuadroreserva > #cuadrarfechas > #cuadrarpistas > .pistas { 
+        width: 100% !important; 
+        margin: 0 !important; 
+        box-sizing: border-box !important; 
     }
-
-    .jugadorconfirma img {
-        width: 120px !important; 
-        height: 120px !important;
-        margin: 0 !important;
+    .infopartida { 
+        display: flex !important; 
+        flex-wrap: wrap !important; 
+        justify-content: space-between !important; 
+        align-items: center !important; 
+        padding: 15px !important; 
+        gap: 10px !important; 
     }
-
-    /* FILA 3: Formulario de inscripción (Selects al 100% para que no se corten) */
-    .inscripciones {
-        flex-direction: column !important;
-        padding: 15px !important;
-        align-items: center !important;
+    .estadopista { 
+        width: 100% !important; 
+        margin-top: 5px !important; 
     }
-
-    .columna {
-        width: 100% !important;
-        height: auto !important;
-        padding: 10px 0 !important;
+    .estadopista .tipoestado { 
+        width: 100% !important; 
+        box-sizing: border-box !important; 
+        padding: 10px 0 !important; 
     }
-
-    .columna select {
-        width: 90% !important;
-        font-size: 16px !important; /* Evita que el iPhone haga zoom al pulsar */
-        padding: 8px !important;
-    }
-
-    .columna button {
-        width: 90% !important;
-        padding: 15px !important;
-        font-size: 18px !important;
-        margin-top: 10px !important;
-    }
+    
+    /* Confirmacion1.php */
+    #infopista, #infohorario, #infoestados { width: 100% !important; height: auto !important; margin-bottom: 15px !important; float: none !important; }
+    .jugadoresconfirmados { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; justify-items: center; }
+    .jugadorconfirma { width: 120px !important; height: 120px !important; }
+    .inscripciones { flex-direction: column !important; align-items: center !important; }
+    .columna { width: 100% !important; padding: 10px 0 !important; }
 }
 
-/* ========================================================
-   📱 RESPONSIVE: CABECERA Y MENÚ (Hasta 900px)
-   ======================================================== */
-@media (max-width: 900px) {
-    /* 1. Arreglo de la Cabecera */
-    header {
-        height: auto !important; /* Quitamos los 100px fijos para que el texto quepa */
-        display: flex !important;
-        flex-direction: column !important; /* Ponemos el logo arriba y el texto abajo */
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 15px 5px !important;
-    }
-
-    .logo {
-        float: none !important; /* Quitamos el float */
-        height: 60px !important; /* Logo un pelín más pequeño en móvil */
-        margin: 0 0 10px 0 !important;
-    }
-
-    header p {
-        float: none !important; /* Quitamos el float */
-        text-align: center !important;
-        font-size: 13px !important; /* Texto un poco más pequeño */
-        padding: 0 !important;
-        line-height: 1.5 !important;
-        width: 100% !important;
-    }
-
-    /* 2. Arreglo del Menú de Navegación */
-    #menu {
-        margin: 0 !important;
-        display: flex !important;
-        flex-direction: column !important; /* Enlaces uno debajo de otro */
-        width: 100% !important;
-        background-color: lightblue !important;
-        gap: 0 !important; /* Quitamos huecos raros */
-    }
-
-    #menu a {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 15px !important;
-        font-size: 18px !important;
-        border-bottom: 1px solid #90c2d4 !important; /* Separador sutil entre enlaces */
-        margin: 0 !important;
-    }
-
-    /* Quitamos la línea separadora al último enlace para que quede limpio */
-    #menu a:last-child {
-        border-bottom: none !important;
-    }
+/* ============================================
+   SECCIÓN DE NOTICIAS DE LA API (INICIO.PHP)
+   ============================================ */
+.grid-noticias {
+    display: grid !important;
+    /* Esto hace la magia del responsive: si hay espacio caben 4, si no, se van bajando a la fila de abajo */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 30px !important;
+    width: 100% !important;
 }
 
+.tarjeta-noticia {
+    background: var(--card-bg-alt) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
 
+.tarjeta-noticia:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
 
+/* La foto de la noticia ocupando la parte de arriba */
+.tarjeta-noticia img {
+    width: 100% !important;
+    height: 140px !important;
+    object-fit: cover !important;
+}
 
+.contenido-noticia {
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
 
+/* Título de la noticia */
+.contenido-noticia h4 {
+    font-size: 15px !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    color: var(--primary-blue) !important;
+    text-align: left !important;
+    border: none !important;
+}
 
+/* Resumen de la noticia */
+.contenido-noticia p {
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 15px !important;
+    flex-grow: 1 !important;
+    line-height: 1.4 !important;
+}
 
+/* Botoncito para ir a la noticia real */
+.btn-leer-mas {
+    align-self: flex-start !important;
+    background: var(--primary-blue) !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    transition: background 0.3s ease !important;
+}
 
-
-
-
-
-
-
-
+.btn-leer-mas:hover {
+    background: var(--primary-hover) !important;
+    color: white !important;
+}

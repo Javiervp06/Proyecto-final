@@ -10,11 +10,34 @@
 </head>
 
 <body>
-    <header>
-        <img src="../Imágenes/Logopaginaweb.png" alt="Logo de Torreorgaz" class="logo">
-        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91 <img src="../Imágenes/whatsapp.jpg">
-            <img src="../Imágenes/telefonos.png"> <br> Jvidartep05@educarex.es <img src="../Imágenes/gmail.png">
-        </p>
+    <header class="header-universal">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="../Pantalla_inicio/inicio.php">
+                    <img src="../Imágenes/Logopaginaweb.png" alt="PadelOrgaz Logo">
+                </a>
+            </div>
+
+            <div class="header-info">
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <div class="info-texts">
+                        <p class="info-title">Ubicación</p>
+                        <p class="info-sub">C. la Trancha, 0, Torreorgaz</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+
+                <div class="info-block">
+                    <span class="info-icon">📞</span>
+                    <div class="info-texts">
+                        <p class="info-title">Contacto</p>
+                        <p class="info-sub">665 33 37 91 | Jvidartep05@educarex.es</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <div id="contenedor">
         <?php include "../componentes/menu.php"; ?>

@@ -1,58 +1,50 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
-$nombre = $_POST["nombre"] ?? "";
-$telefono = $_POST["telefono"] ?? "";
-$correo = $_POST["correo"] ?? "";
-$mensaje = $_POST["mensaje"] ?? "";
+// 1. CONEXIÓN A LA BASE DE DATOS
+require_once "../bdd/config.php"; 
 
+$nombre = trim($_POST["nombre"] ?? "");
+$telefono = trim($_POST["telefono"] ?? "");
+$correo = trim($_POST["correo"] ?? "");
+$mensaje = trim($_POST["mensaje"] ?? "");
 $errores = [];
-$old = [];
 
-/* ---------------- VALIDACIONES ---------------- */
+// 2. VALIDACIONES
+if (empty($nombre)) $errores[] = "El nombre es obligatorio.";
+if (!preg_match("/^[0-9]{9}$/", $telefono)) $errores[] = "El teléfono debe tener 9 números.";
+if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) $errores[] = "El correo no es válido.";
+if (empty($mensaje)) $errores[] = "El mensaje es obligatorio.";
 
-// Nombre
-if ($nombre === "") {
-    $errores["nombre"] = "El nombre es obligatorio.";
-} elseif (strlen($nombre) < 3 || strlen($nombre) > 20) {
-    $errores["nombre"] = "El nombre debe tener entre 3 y 20 caracteres.";
+if (empty($errores)) {
+    try {
+        // 3. INSERCIÓN USANDO 'fecha_solicitud'
+        $sql = "INSERT INTO clases (nombre, email, telefono, mensaje, fecha_solicitud) VALUES (?, ?, ?, ?, NOW())";
+        $stmt = $conexion->prepare($sql);
+        
+        if ($stmt) {
+            $stmt->bind_param("ssss", $nombre, $correo, $telefono, $mensaje);
+            
+            if ($stmt->execute()) {
+                echo json_encode([
+                    "status" => "success", 
+                    "mensaje" => "¡Inscripción enviada correctamente!"
+                ]);
+            } else {
+                echo json_encode([
+                    "status" => "error", 
+                    "errores" => ["Error al guardar: " . $conexion->error]
+                ]);
+            }
+            $stmt->close();
+        } else {
+            echo json_encode(["status" => "error", "errores" => ["Error de conexión."]]);
+        }
+    } catch (Exception $e) {
+        echo json_encode(["status" => "error", "errores" => [$e->getMessage()]]);
+    }
+} else {
+    echo json_encode(["status" => "error", "errores" => $errores]);
 }
-$old["nombre"] = $nombre;
-
-// Teléfono
-if (!preg_match("/^[0-9]{9}$/", $telefono)) {
-    $errores["telefono"] = "El teléfono debe tener 9 números.";
-}
-$old["telefono"] = $telefono;
-
-// Correo
-if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-    $errores["correo"] = "El correo electrónico no es válido.";
-}
-$old["correo"] = $correo;
-
-// Mensaje
-if ($mensaje === "") {
-    $errores["mensaje"] = "Los datos de interés son obligatorios.";
-}
-$old["mensaje"] = $mensaje;
-
-/* ---------------- SI HAY ERRORES ---------------- */
-
-if (!empty($errores)) {
-    $_SESSION["errores"] = $errores;
-    $_SESSION["old"] = $old;
-    header("Location: clases.php"); // vuelve al formulario
-    exit;
-}
-
-/* ---------------- SI TODO ESTÁ BIEN ---------------- */
-
-echo "<h2>Formulario enviado correctamente</h2>";
-echo "Nombre: $nombre<br>";
-echo "Teléfono: $telefono<br>";
-echo "Correo: $correo<br>";
-echo "Mensaje: $mensaje<br>";
-
-echo "<br><a href='clases.php'>Volver</a>";
 ?>

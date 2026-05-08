@@ -1,8 +1,28 @@
 <?php
 session_start();
+require_once "../bdd/config.php"; // Necesitamos la conexión
+
+// Inicializamos variables vacías
+$nombre_pre = "";
+$email_pre = "";
+$tel_pre = "";
+
+// Si el usuario está logueado, traemos sus datos
+if (isset($_SESSION["usuario_id"])) {
+    $user_id = $_SESSION["usuario_id"];
+    $sql_u = "SELECT nombre, email, telefono FROM usuarios WHERE id = $user_id";
+    $res_u = $conexion->query($sql_u);
+    if ($res_u && $res_u->num_rows === 1) {
+        $datos = $res_u->fetch_assoc();
+        $nombre_pre = $datos['nombre'];
+        $email_pre = $datos['email'];
+        $tel_pre = $datos['telefono'];
+    }
+}
+
 $errores = $_SESSION["errores"] ?? [];
 $old = $_SESSION["old"] ?? [];
-unset($_SESSION["errores"], $_SESSION["old"]); // SOLO borramos errores, no la sesión entera
+unset($_SESSION["errores"], $_SESSION["old"]);
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +37,34 @@ unset($_SESSION["errores"], $_SESSION["old"]); // SOLO borramos errores, no la s
 </head>
 
 <body>
-    <header>
-        <img src="../Imágenes/Logopaginaweb.png" alt="Logo de Torreorgaz" class="logo">
-        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91
-            <img src="../Imágenes/whatsapp.jpg">
-            <img src="../Imágenes/telefonos.png">
-            <br> Jvidartep05@educarex.es <img src="../Imágenes/gmail.png">
-        </p>
+    <header class="header-universal">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="../Pantalla_inicio/inicio.php">
+                    <img src="../Imágenes/Logopaginaweb.png" alt="PadelOrgaz Logo">
+                </a>
+            </div>
+
+            <div class="header-info">
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <div class="info-texts">
+                        <p class="info-title">Ubicación</p>
+                        <p class="info-sub">C. la Trancha, 0, Torreorgaz</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+
+                <div class="info-block">
+                    <span class="info-icon">📞</span>
+                    <div class="info-texts">
+                        <p class="info-title">Contacto</p>
+                        <p class="info-sub">665 33 37 91 | Jvidartep05@educarex.es</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div id="contenedor">
@@ -53,62 +94,60 @@ unset($_SESSION["errores"], $_SESSION["old"]); // SOLO borramos errores, no la s
 
         <div id="formclases">
             <h3>Formulario de inscripción para Clases de Padel</h3>
+            
+            <div id="caja-mensajes" style="display: none; padding: 15px; margin-bottom: 20px; border-radius: 8px; font-weight: bold; text-align: center;"></div>
 
-            <form action="procesar_clases.php" method="post">
-
-                <!-- NOMBRE -->
+            <form id="form-clases">
                 <div class="fila">
-                    <label for="nombre">
-                        <div class="asterisco">*</div> Nombre:
-                    </label>
-                    <input type="text" id="nombre" name="nombre" value="<?= $old['nombre'] ?? '' ?>">
+                    <label for="nombre"><div class="asterisco">*</div> Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($nombre_pre) ?>">
                 </div>
-                <?php if (isset($errores['nombre'])): ?>
-                    <p style="color:red;"><?= $errores['nombre'] ?></p>
-                <?php endif; ?>
-
-                <!-- TELEFONO -->
                 <div class="fila">
-                    <label for="telefono">
-                        <div class="asterisco">*</div> Teléfono:
-                    </label>
-                    <input type="number" id="telefono" name="telefono" value="<?= $old['telefono'] ?? '' ?>">
+                    <label for="telefono"><div class="asterisco">*</div> Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" maxlength="9" pattern="[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" value="<?= htmlspecialchars($tel_pre) ?>">
                 </div>
-                <?php if (isset($errores['telefono'])): ?>
-                    <p style="color:red;"><?= $errores['telefono'] ?></p>
-                <?php endif; ?>
-
-                <!-- CORREO -->
                 <div class="fila">
-                    <label for="correo">
-                        <div class="asterisco">*</div> Correo electrónico:
-                    </label>
-                    <input type="email" id="correo" name="correo" value="<?= $old['correo'] ?? '' ?>">
+                    <label for="correo"><div class="asterisco">*</div> Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" value="<?= htmlspecialchars($email_pre) ?>">
                 </div>
-                <?php if (isset($errores['correo'])): ?>
-                    <p style="color:red;"><?= $errores['correo'] ?></p>
-                <?php endif; ?>
-
-                <!-- MENSAJE -->
-                <div class="fila-mensaje">
-                    <label for="mensaje">
-                        <div class="asterisco">*</div> Datos de interés:
-                    </label>
-                    <textarea id="mensaje" name="mensaje"><?= $old['mensaje'] ?? '' ?></textarea>
+                <div class="fila">
+                    <label for="mensaje"><div class="asterisco">*</div> Nivel de la clase:</label>
+                    <select id="mensaje" name="mensaje" class="mismo-ancho">
+                        <option value="" disabled selected>Selecciona el nivel que buscas...</option>
+                        <option value="Principiantes">Clases Principiantes</option>
+                        <option value="Intermedios">Clases Nivel Medio</option>
+                        <option value="Avanzados">Clases Avanzadas / Competición</option>
+                        <option value="Menores">Clases Infantiles</option>
+                    </select>
                 </div>
-                <?php if (isset($errores['mensaje'])): ?>
-                    <p style="color:red;"><?= $errores['mensaje'] ?></p>
-                <?php endif; ?>
-
                 <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
+    <footer><p>© 2025 Padelorgaz.</p></footer>
 
-    <footer>
-        <p>© 2025 Padelorgaz.</p>
-    </footer>
+    <script>
+        const formClases = document.getElementById("form-clases");
+        const cajaMensajes = document.getElementById("caja-mensajes");
 
+        formClases.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(formClases);
+
+            fetch("procesar_clases.php", { method: "POST", body: formData })
+            .then(res => res.json())
+            .then(data => {
+                cajaMensajes.style.display = "block";
+                if (data.status === "error") {
+                    cajaMensajes.style.cssText = "display:block; padding:15px; margin-bottom:20px; border-radius:8px; font-weight:bold; background-color:#fff1f2; color:#e11d48; border:1px solid #e11d48;";
+                    cajaMensajes.innerHTML = "<ul style='text-align:left; margin:0;'>" + data.errores.map(e => `<li>${e}</li>`).join("") + "</ul>";
+                } else {
+                    cajaMensajes.style.cssText = "display:block; padding:15px; margin-bottom:20px; border-radius:8px; font-weight:bold; text-align:center; background-color:#e0f2e9; color:#2e7d32; border:1px solid #2e7d32;";
+                    cajaMensajes.innerHTML = "✅ " + data.mensaje;
+                    formClases.reset();
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>

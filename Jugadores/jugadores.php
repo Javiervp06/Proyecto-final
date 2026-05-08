@@ -2,10 +2,15 @@
 session_start();
 require_once "../bdd/config.php";
 
-// Obtener todos los jugadores ordenados por nivel DESC
-$sql = "SELECT id, nombre, apellidos, alias, sexo, posicion, nivel, avatar, creado_en
-        FROM usuarios
-        ORDER BY nivel DESC";
+// Obtener todos los jugadores y la fecha de su último partido finalizado
+$sql = "SELECT u.id, u.nombre, u.apellidos, u.alias, u.sexo, u.posicion, u.nivel, u.avatar, u.creado_en,
+        (SELECT MAX(r.dia) 
+         FROM reservas r 
+         WHERE r.id_usuario = u.id 
+         AND r.dia < CURDATE()) as ultimo_partido
+        FROM usuarios u
+        ORDER BY u.nivel DESC";
+
 $resultado = $conexion->query($sql);
 ?>
 
@@ -17,19 +22,44 @@ $resultado = $conexion->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PadelOrgaz-Jugadores</title>
     <link rel="stylesheet" href="../css/inicio.css">
-    <link rel="stylesheet" href="../css/jugadores.css">
+
     <link rel="shortcut icon" href="../Imágenes/Torreorgaz.png" type="image/x-icon">
+    <style>
+        .capitalizar {
+            text-transform: capitalize;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <img src="../Imágenes/Logopaginaweb.png" alt="Logo de Torreorgaz" class="logo">
-        <p>C. la Trancha, 0, 10182 Torreorgaz, Cáceres<br>665 33 37 91
-            <img src="../Imágenes/whatsapp.jpg">
-            <img src="../Imágenes/telefonos.png">
-            <br> Jvidartep05@educarex.es
-            <img src="../Imágenes/gmail.png">
-        </p>
+    <header class="header-universal">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="../Pantalla_inicio/inicio.php">
+                    <img src="../Imágenes/Logopaginaweb.png" alt="PadelOrgaz Logo">
+                </a>
+            </div>
+
+            <div class="header-info">
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <div class="info-texts">
+                        <p class="info-title">Ubicación</p>
+                        <p class="info-sub">C. la Trancha, 0, Torreorgaz</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+
+                <div class="info-block">
+                    <span class="info-icon">📞</span>
+                    <div class="info-texts">
+                        <p class="info-title">Contacto</p>
+                        <p class="info-sub">665 33 37 91 | Jvidartep05@educarex.es</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div id="contenedor">
@@ -69,20 +99,28 @@ $resultado = $conexion->query($sql);
 
                     <!-- INFORMACIÓN -->
                     <div class="jugador-info">
-
                         <div class="info-izquierda">
-                            <div class="jugador-nombre"><?= $jug["alias"] ?></div>
-                            <p>Posición: <?= $jug["posicion"] ?></p>
-                            <p><?= $jug["sexo"] ?></p>
-                            <p>Alta: <?= $jug["creado_en"] ?></p>
+                            <div class="jugador-nombre"><?= htmlspecialchars($jug["alias"]) ?></div>
+                            
+                            <p>Posición: <span class="capitalizar"><?= htmlspecialchars($jug["posicion"]) ?></span></p>
+                            <p class="capitalizar"><?= htmlspecialchars($jug["sexo"]) ?></p>
+                            
+                            <p>Alta: <?= date("d/m/Y", strtotime($jug["creado_en"])) ?></p>
                         </div>
 
                         <div class="info-derecha">
-                            <p>Último Partido:  <!--$ultimoPartido --> </p>
+                            <p>Último Partido:</p>
+                            <b>
+                                <?php 
+                                if (!empty($jug["ultimo_partido"])) {
+                                    echo date("d/m/Y", strtotime($jug["ultimo_partido"]));
+                                } else {
+                                    echo "Sin partidos";
+                                }
+                                ?>
+                            </b>
                         </div>
-
                     </div>
-
 
                 </div>
 

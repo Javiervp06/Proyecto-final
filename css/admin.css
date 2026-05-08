@@ -1,0 +1,309 @@
+/* ===========================================
+   ESTILOS PROFESIONALES PANEL ADMIN PADELORGAZ
+   =========================================== */
+
+/* 1. Reset y Estructura Base */
+.admin-body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8fafc; /* Gris muy clarito de fondo */
+    color: #334155;
+    overflow: hidden;
+}
+
+/* 2. BARRA LATERAL (SIDEBAR) */
+.admin-sidebar {
+    width: 280px;
+    background-color: #1e293b; /* Azul muy oscuro casi negro */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.admin-logo {
+    padding: 30px 20px;
+    text-align: center;
+    background: #0f172a; /* Un tono más oscuro para el logo */
+}
+
+.admin-logo img {
+    max-width: 140px;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+}
+
+.admin-logo h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    color: #38bdf8; /* Azul cyan para resaltar */
+}
+
+.admin-menu {
+    flex-grow: 1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-menu a {
+    padding: 14px 25px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.admin-menu a:hover {
+    background: #334155;
+    color: white;
+    border-left: 4px solid #38bdf8;
+}
+
+.admin-menu a.activo {
+    background: #334155;
+    color: white;
+    border-left: 4px solid #0A58CA;
+}
+
+.admin-menu .spacer { flex-grow: 1; }
+
+.admin-menu a.logout {
+    color: #f87171;
+    border-top: 1px solid #334155;
+}
+
+/* 3. ÁREA PRINCIPAL Y CABECERA (LO QUE QUERÍAS CAMBIAR) */
+.admin-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* La cabecera ahora es blanca y limpia */
+.admin-header {
+    background: #ffffff !important; 
+    background-image: none !important; /* Forzamos quitar el césped */
+    height: 70px !important; /* Altura fija elegante */
+    min-height: 70px !important;
+    padding: 0 40px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.admin-header h2 {
+    margin: 0 !important;
+    font-size: 18px !important;
+    color: #1e293b !important; /* Gris muy oscuro casi negro */
+    font-weight: 700 !important;
+    text-transform: none !important;
+    border: none !important;
+    padding: 0 !important;
+    letter-spacing: -0.5px !important;
+}
+
+.admin-perfil {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-perfil span {
+    font-weight: 600;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.admin-perfil img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    object-fit: cover;
+}
+
+/* 4. CONTENIDO INTERIOR */
+.admin-content {
+    padding: 30px 40px;
+}
+
+/* Tarjetas del Dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.dash-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+}
+
+.dash-card h3 {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dash-card .big-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0A58CA;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Tablas y Paneles */
+.admin-panel-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+}
+
+.admin-panel-box h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* Estilo de la Tabla de Reservas */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 12px 15px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+}
+
+.btn-delete {
+    background-color: #ef4444 !important; /* Rojo estándar limpio */
+    color: #ffffff !important; /* Texto blanco */
+    border: none !important;
+    padding: 8px 14px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2) !important; /* Pequeña sombra roja */
+}
+
+.btn-delete:hover {
+    background-color: #dc2626 !important; /* Rojo más oscuro al pasar el ratón */
+    box-shadow: 0 4px 6px rgba(220, 38, 38, 0.3) !important;
+}
+
+/* ===========================================
+   RESPONSIVE TOTAL (SIN HAMBURGUESA)
+   =========================================== */
+
+/* ===========================================
+   RESPONSIVE TOTAL (MÓVILES Y TABLETS)
+   =========================================== */
+@media (max-width: 992px) {
+    .admin-body {
+        flex-direction: column;
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .admin-logo {
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Menú vertical idéntico a tu captura */
+    .admin-menu {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .admin-menu a {
+        padding: 15px 25px;
+        font-size: 14px;
+        border-bottom: 1px solid #334155; /* Línea separadora suave */
+        border-left: none !important; /* Quitamos la raya lateral en móviles */
+    }
+
+    .admin-main {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Cabecera centrada y ordenada */
+    .admin-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        height: auto !important;
+        padding: 20px 10px !important;
+        gap: 15px !important;
+    }
+
+    /* Botón y foto de perfil alineados como en tu captura */
+    .header-acciones {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 15px !important;
+        width: 100%;
+    }
+
+    /* Caja blanca del formulario/dashboard */
+    .admin-panel-box {
+        padding: 20px !important;
+        margin: 5px 0 20px 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden;
+    }
+
+    /* Mejora extra: Evita que el iPhone haga zoom al pulsar en los campos de texto */
+    .form-admin input, .form-admin select {
+        font-size: 16px !important; 
+        padding: 15px !important;
+    }
+}
