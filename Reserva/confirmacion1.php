@@ -17,9 +17,7 @@ if ($id_reserva) {
     // Para mostrar quién reservó, qué día, etc.
 }
 
-// ===============================
 // 2. Recibir datos de la reserva
-// ===============================
 $dia = $_GET['dia'] ?? null;
 $hora = $_GET['hora'] ?? null;
 $pista_id = $_GET['pista'] ?? null;
@@ -28,9 +26,7 @@ if (!$dia || !$hora || !$pista_id) {
     die("Faltan datos de la reserva.");
 }
 
-// ===============================
 // 3. Formatear fecha en español (SIN ERRORES)
-// ===============================
 $dia_largo = "Fecha no disponible";
 $titulo_fecha = "Día no seleccionado";
 $timestamp = false;
@@ -56,9 +52,7 @@ if (!empty($dia)) {
     }
 }
 
-// ===============================
 // 4. Calcular hora fin (+90 min) y control de tiempo
-// ===============================
 $hora_fin = "00:00";
 if (!empty($hora)) {
     $hora_fin = date("H:i", @strtotime($hora . " +90 minutes"));
@@ -69,17 +63,13 @@ $ahora = time();
 $fecha_hora_partida = ($timestamp !== false && !empty($hora)) ? @strtotime("$dia $hora") : 0;
 $ha_pasado = ($fecha_hora_partida > 0 && $ahora > $fecha_hora_partida);
 
-// ===============================
 // 5. Generar los 5 días para la barra
-// ===============================
 $dias_barra = [];
 for ($i = 0; $i < 5; $i++) {
     $dias_barra[] = date('Y-m-d', strtotime("+$i days"));
 }
 
-// ===============================
 // 6. Obtener datos de la pista y jugadores
-// ===============================
 $sqlP = "SELECT nombre, imagen FROM pistas WHERE id = $pista_id";
 $pista = $conexion->query($sqlP)->fetch_assoc();
 

@@ -1,8 +1,4 @@
-/* ===========================================
-   ESTILOS PROFESIONALES PANEL ADMIN PADELORGAZ
-   =========================================== */
-
-/* 1. Reset y Estructura Base */
+/* 1. Estructura Base */
 .admin-body {
     display: flex;
     height: 100vh;
@@ -227,13 +223,7 @@
     box-shadow: 0 4px 6px rgba(220, 38, 38, 0.3) !important;
 }
 
-/* ===========================================
-   RESPONSIVE TOTAL (SIN HAMBURGUESA)
-   =========================================== */
-
-/* ===========================================
-   RESPONSIVE TOTAL (MÓVILES Y TABLETS)
-   =========================================== */
+/* RESPONSIVE TOTAL (MÓVILES Y TABLETS) */
 @media (max-width: 992px) {
     .admin-body {
         flex-direction: column;

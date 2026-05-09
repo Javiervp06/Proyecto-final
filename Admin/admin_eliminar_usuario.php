@@ -10,9 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_usuario'])) {
     
     $id_usuario = intval($_POST['id_usuario']);
 
-    /* * NOTA IMPORTANTE: Si el usuario tiene reservas a su nombre, 
-     * primero debemos borrar sus reservas para que la base de datos no dé error.
-     */
+    /* Si el usuario tiene reservas a su nombre, primero debemos borrar sus reservas para que la base de datos no dé error. */
     $sql_reservas = "DELETE FROM reservas WHERE id_usuario = ?";
     $stmt_reservas = $conexion->prepare($sql_reservas);
     $stmt_reservas->bind_param("i", $id_usuario);

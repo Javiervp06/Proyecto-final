@@ -29,7 +29,7 @@ if ($resultado->num_rows === 1) {
         // GUARDAMOS EL ROL EN LA SESIÓN
         $_SESSION["rol"] = $usuario["rol"];
 
-        // MAGIA AQUÍ: Si marcó "Recordarme", creamos una Cookie válida por 30 días
+        // Si marcó "Recordarme", creamos una Cookie válida por 30 días
         if ($recordarme) {
             setcookie("recuerdame_id", $usuario["id"], time() + (30 * 24 * 60 * 60), "/");
         }

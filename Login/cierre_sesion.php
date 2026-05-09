@@ -5,10 +5,9 @@ session_start();
 session_unset();
 session_destroy();
 
-// 2. ¡MAGIA INVERSA! Destruimos la cookie de "Recordarme" si existe
+// 2. Destruimos la cookie de "Recordarme" si existe
 if (isset($_COOKIE['recuerdame_id'])) {
-    // Para borrar una cookie, la volvemos a crear pero le ponemos 
-    // una fecha de caducidad en el pasado (hace 1 hora = -3600 segundos)
+    // Para borrar una cookie, la volvemos a crear pero le ponemos una fecha de caducidad en el pasado (hace 1 hora = -3600 segundos)
     setcookie("recuerdame_id", "", time() - 3600, "/");
 }
 

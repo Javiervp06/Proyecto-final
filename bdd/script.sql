@@ -1,16 +1,8 @@
--- ==========================================================
--- SCRIPT DE CREACIÓN DE LA BASE DE DATOS: PADELORGAZ
--- ==========================================================
--- Este script crea todas las tablas necesarias y sus relaciones.
--- El cotejamiento utilizado es utf8mb4_general_ci para admitir tildes y emojis.
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
--- --------------------------------------------------------
 -- 1. TABLA: pistas
--- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pistas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -19,9 +11,7 @@ CREATE TABLE IF NOT EXISTS `pistas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 -- 2. TABLA: usuarios
--- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -42,10 +32,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 -- 3. TABLA: reservas
--- (Debe ir después de 'pistas' y 'usuarios' por las relaciones)
--- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `reservas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dia` date NOT NULL,
@@ -67,9 +54,7 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   CONSTRAINT `fk_reservas_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 -- 4. TABLA: profesores
--- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `profesores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -80,9 +65,7 @@ CREATE TABLE IF NOT EXISTS `profesores` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 -- 5. TABLA: clases (Solicitudes de alumnos)
--- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `clases` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -94,9 +77,7 @@ CREATE TABLE IF NOT EXISTS `clases` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 -- 6. TABLA: contacto (Mensajes genéricos)
--- --------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `contacto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,

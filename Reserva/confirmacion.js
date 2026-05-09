@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-/* ============================
-   RELLENAR FECHAS ARRIBA DESDE HOY
-   ============================ */
+/* RELLENAR FECHAS ARRIBA DESDE HOY */
 
 const contenedores = document.querySelectorAll("#dias .fecha");
 const hoy = new Date();
@@ -22,9 +20,7 @@ contenedores.forEach((div, i) => {
     div.dataset.fecha = fecha.toLocaleDateString("es-ES");
 });
 
-/* ============================
-   MARCAR EL DÍA DE LA RESERVA
-   ============================ */
+/* MARCAR EL DÍA DE LA RESERVA */
 
 // Leer dia desde la URL (formato 2026-02-10)
 const params = new URLSearchParams(window.location.search);
@@ -47,10 +43,7 @@ if (diaURL) {
     });
 }
 
-/* ============================
-   CALCULAR HORA FIN
-   ============================ */
-
+/* CALCULAR HORA FIN*/
 function sumarMinutos(hora, minutos) {
     let [h, m] = hora.split(":").map(Number);
     m += minutos;
@@ -61,16 +54,12 @@ function sumarMinutos(hora, minutos) {
 
 let horaFin = horaURL ? sumarMinutos(horaURL, 90) : "";
 
-/* ============================
-   BOTÓN INSCRIBIRSE
-   ============================ */
+/* BOTÓN INSCRIBIRSE */
 
 const btnInscribirse = document.getElementById("inscribirse");
 
 if (btnInscribirse) {
     btnInscribirse.addEventListener("click", () => {
-        // Tu formulario de PHP ya tiene la fecha, hora y pista rellenados.
-        // Solo necesitamos coger el Nivel y los Jugadores de los desplegables.
         
         let nivelElegido = document.getElementById("nivel").value;
         let jugadoresElegidos = document.getElementById("jugadores").value;

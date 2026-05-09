@@ -16,9 +16,7 @@ if (!$id_usuario) {
     $nivel = $_POST['nivel'];
     $jugadores = (int)$_POST['jugadores']; // Plazas que quiere reservar
 
-    // =========================================================
-    // FUNCIÓN PARA MOSTRAR MENSAJES BONITOS EN VEZ DE ALERTS
-    // =========================================================
+    // FUNCIÓN PARA MOSTRAR MENSAJES BONITOS 
     function mostrarErrorEstilizado($titulo, $mensaje) {
         echo "<!DOCTYPE html>
         <html lang='es'>
@@ -50,9 +48,7 @@ if (!$id_usuario) {
         exit();
     }
 
-    // =========================================================
     // 1. VALIDACIÓN DE NIVEL PARA JUGADORES QUE SE UNEN
-    // =========================================================
     $sql_user = "SELECT nombre, email, nivel FROM usuarios WHERE id = $id_usuario";
     $datos_user = $conexion->query($sql_user)->fetch_assoc();
     $nivel_usuario = (float)$datos_user['nivel'];
@@ -89,9 +85,7 @@ if (!$id_usuario) {
         }
     }
 
-    // =========================================================
     // 2. COMPROBAR PLAZAS LIBRES
-    // =========================================================
     $sql_check = "SELECT SUM(jugadores) as total FROM reservas WHERE dia=? AND hora_inicio=? AND pista_id=?";
     $stmt_check = $conexion->prepare($sql_check);
     $stmt_check->bind_param("ssi", $dia, $hora, $pista);
@@ -123,17 +117,14 @@ $stmt->bind_param("sssiisi", $dia, $hora, $hora_fin, $pista, $id_usuario, $nivel
 if ($stmt->execute()) {
     $stmt->close();
 
-    // ==========================================
     // 📧 CORREO 1: CONFIRMACIÓN INDIVIDUAL
-    // ==========================================
     $asunto1 = "Confirmacion de reserva - PadelOrgaz";
     $cuerpo1 = "Hola $nombre_usuario,\n\nTu plaza para el partido del dia $dia a las $hora ha sido confirmada.\n\n¡Nos vemos en la pista!";
     
     mandarCorreoSMTP($email_usuario, $asunto1, $cuerpo1);
 
-// ==========================================
     // 1. RE-CALCULAR EL TOTAL REAL (Asegurando formato)
-    // ==========================================
+
     $hora_busqueda = substr($hora, 0, 5) . "%"; 
 
     $sql_count = "SELECT SUM(jugadores) as total FROM reservas WHERE dia=? AND hora_inicio LIKE ? AND pista_id=?";
@@ -144,9 +135,7 @@ if ($stmt->execute()) {
     $total_real = (int)($fila_count['total'] ?? 0);
     $stmt_count->close();
 
-    // ==========================================
     // 2. LÓGICA DE ENVÍO GRUPAL
-    // ==========================================
     if ($total_real >= 4) {
         // Buscamos los correos agrupando para no repetir
         $sql_emails = "SELECT u.email, u.nombre FROM reservas r 

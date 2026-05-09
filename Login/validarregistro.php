@@ -27,9 +27,7 @@ $nivel = str_replace(",", ".", $nivel);
 $avatar_ruta = null; // Más adelante haremos la subida de foto
 $errores = [];
 
-// ==========================
 // VALIDACIONES
-// ==========================
 if (empty($nombre)) {
     $errores[] = "El nombre es obligatorio.";
 } else if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/", $nombre)) {
@@ -98,16 +96,13 @@ if ($nivel === "") {
     $errores[] = "El nivel debe estar entre 1 y 7.";
 }
 
-// ==========================
 // RESPUESTA DE ERRORES O INSERCIÓN
-// ==========================
 if (!empty($errores)) {
     // Si hay errores, devolvemos el array en formato JSON y paramos aquí.
     echo json_encode(["status" => "error", "errores" => $errores]);
     exit;
 }
 
-// COMPROBAR DUPLICADOS (NUEVO)
 // Comprobar si el Email ya existe
 $sqlEmail = "SELECT id FROM usuarios WHERE email = ?";
 $stmtEmail = $conexion->prepare($sqlEmail);

@@ -47,7 +47,6 @@ $resultado = $conexion->query($sql);
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="shortcut icon" href="../Imágenes/Torreorgaz.png" type="image/x-icon">
     <style>
-        /* Estilos rápidos para la tabla de gestión */
         .admin-table {
             width: 100%;
             border-collapse: collapse;

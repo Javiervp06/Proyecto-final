@@ -188,9 +188,7 @@ $total_jugados = $res_jugados->fetch_assoc()['total'];
             transform: scale(1.05);
         }
 
-        /* =========================================
-           DISEÑO RESPONSIVE (MÓVILES Y TABLETS) 
-           ========================================= */
+        /* DISEÑO RESPONSIVE (MÓVILES Y TABLETS) */
         @media screen and (max-width: 900px) {
             /* 1. Pasamos de 2 columnas a 1 columna apilada */
             .panel-contenedor { 

@@ -13,10 +13,7 @@ if ($conexion->connect_error) {
 // Opcional: para que use UTF-8
 $conexion->set_charset("utf8mb4");
 
-// ==========================================
 // SISTEMA AUTO-LOGIN ("RECORDARME")
-// ==========================================
-
 // Asegurarnos de que la sesión esté iniciada para poder usar $_SESSION
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

@@ -1,8 +1,6 @@
 <?php
 session_start();
 require_once "../bdd/config.php"; 
-// MUY IMPORTANTE: Asegúrate de que esta ruta apunta a tu archivo de correos. 
-// Si está en otra carpeta (por ejemplo en Reserva), pon "../Reserva/enviar_correo.php"
 require_once "../bdd/enviar_correo.php"; 
 
 if (!isset($_SESSION["usuario_id"])) {

@@ -1,6 +1,4 @@
-/* ============================================
-   1. VARIABLES DE COLOR Y FUENTE (MODERNO)
-   ============================================ */
+/* 1. VARIABLES DE COLOR Y FUENTE (MODERNO) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 :root {
@@ -16,9 +14,7 @@
     --border-radius-main: 16px;    
 }
 
-/* ============================================
-   2. ESTILOS GENERALES
-   ============================================ */
+/* 2. ESTILOS GENERALES */
 body {
     margin: 0;
     height: 100%;
@@ -27,9 +23,7 @@ body {
     color: var(--text-dark);
 }
 
-/* ============================================
-   2. ESTILOS DE CABECERA (UNIVERSAL PREMIUM)
-   ============================================ */
+/* 2. ESTILOS DE CABECERA  */
 
 .header-universal {
     background-color: #002d57; /* Azul oscuro premium */
@@ -154,9 +148,7 @@ footer {
     padding: 10px 0;
 }
 
-/* ============================================
-   3. MENÚ DE NAVEGACIÓN (MODERNO)
-   ============================================ */
+/* 3. MENÚ DE NAVEGACIÓN (MODERNO) */
 #menu {
     background-color: #003d7a; /* Un azul un poco más vibrante que la cabecera */
     display: flex;
@@ -203,9 +195,7 @@ footer {
     }
 }
 
-/* ============================================
-   3. RECUADROS PRINCIPALES (Efecto Premium)
-   ============================================ */
+/* 3. RECUADROS PRINCIPALES  */
 #recuadro, #recuadroreserva, #recuadroregistro, .login, #formclases, #recuadroranking, #recuadrocontacto {
     background-color: var(--card-bg) !important;
     width: 70%;
@@ -219,9 +209,7 @@ footer {
     min-height: calc(100vh - 100px - 60px - 100px);
 }
 
-/* ============================================
-   ESTILO DE TÍTULOS (Sencillo y Elegante)
-   ============================================ */
+/* ESTILO DE TÍTULOS (Sencillo y Elegante) */
 #recuadro h1, #recuadro h2, #recuadro h3 {
     font-style: normal !important; /* Mantenemos fuera la cursiva antigua */
     color: var(--primary-blue);
@@ -261,9 +249,7 @@ footer {
     display: none !important;
 }
 
-/* ============================================
-   4. BOTONES GLOBALES
-   ============================================ */
+/* 4. BOTONES GLOBALES */
 button {
     background-color: var(--primary-blue) !important;
     color: white !important;
@@ -287,9 +273,7 @@ button a {
     text-decoration: none;
 }
 
-/* ============================================
-   5. PÁGINAS ESPECÍFICAS (Login, Registro, etc)
-   ============================================ */
+/* 5. PÁGINAS ESPECÍFICAS (Login, Registro, etc) */
 /* Login */
 .login {
     width: 40%;
@@ -364,9 +348,7 @@ button a {
     display: block;
 }
 
-/* ============================================
-   FORMULARIOS (Contacto y Clases)
-   ============================================ */
+/* FORMULARIOS (Contacto y Clases) */
 .fila, .fila-mensaje {
     display: flex;
     align-items: flex-start; /* Mejor para que el label se quede arriba si hay un textarea */
@@ -405,7 +387,7 @@ button a {
     resize: vertical;
 }
 
-/* Arreglo MÁGICO del asterisco: lo convertimos en elemento en línea para que no salte de párrafo */
+/* Arreglo del asterisco: lo convertimos en elemento en línea para que no salte de párrafo */
 .asterisco {
     display: inline;
     color: #e11d48; /* Un rojo elegante */
@@ -422,12 +404,7 @@ button a {
     font-size: 16px;
 }
 
-/* ============================================
-   6. MÓDULO DE RESERVAS (SOLO RESERVA.PHP)
-   ============================================ */
-
-/* Usamos el símbolo ">" para que ESTO SOLO AFECTE a reserva.php
-   y no rompa nada en confirmacion1.php */
+/* 6. MÓDULO DE RESERVAS (SOLO RESERVA.PHP) */
 #recuadroreserva > #cuadrarfechas {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -538,9 +515,7 @@ button a {
     border: none !important;
 }
 
-/* ============================================
-   DISEÑO CONFIRMACIÓN Y RESERVAS
-   ============================================ */
+/* DISEÑO CONFIRMACIÓN Y RESERVAS */
 
 /* 1. El Recuadro Principal (70% en PC) */
 #recuadroreserva {
@@ -603,7 +578,7 @@ button a {
     color: white !important;
 }
 
-/*  esponsive: En móviles y tablets el 70% pasa a ser un 95% */
+/*  responsive: En móviles y tablets el 70% pasa a ser un 95% */
 @media (max-width: 900px) {
     #recuadroreserva { 
         width: 95% !important; 
@@ -614,9 +589,7 @@ button a {
     } 
 }
 
-/* ============================================
-   7. ADAPTACIÓN PARA PORTÁTILES (MÁXIMO 1366px)
-   ============================================ */
+/* 7. ADAPTACIÓN PARA PORTÁTILES (MÁXIMO 1366px) */
 @media (max-width: 1366px) {
     #recuadro, #recuadroreserva, #recuadroregistro, .login {
         width: 95% !important; /* Le damos más aire al recuadro blanco para que quepan las fechas largas */
@@ -628,9 +601,7 @@ button a {
     }
 }
 
-/* ============================================
-   7. ARREGLOS ESPECÍFICOS: REGISTRO (GUÍA Y AVATAR)
-   ============================================ */
+/* 7. ARREGLOS ESPECÍFICOS: REGISTRO (GUÍA Y AVATAR) */
 
 /* --- Guía de Niveles --- */
 #titulo-guia {
@@ -714,9 +685,7 @@ button a {
     background: none !important;
 }
 
-/* ============================================
-   8. SECCIÓN INFORMACIÓN (Menú lateral y Contenido)
-   ============================================ */
+/* 8. SECCIÓN INFORMACIÓN (Menú lateral y Contenido) */
 #recuadroinfo {
     display: flex;
     gap: 40px; /* Separación entre el menú y el texto */
@@ -781,7 +750,7 @@ button a {
     margin-bottom: 20px;
 }
 
-/* --- Mapa Responsive (De tu lista de tareas) --- */
+/* --- Mapa Responsive --- */
 .contenido iframe {
     width: 100% !important; /* El mapa ocupa todo el ancho de la columna derecha */
     max-width: 100%;
@@ -803,9 +772,7 @@ button a {
     left: 0;
 }
 
-/* ============================================
-   TEXTOS DE ADVERTENCIA (Anulaciones y Normas)
-   ============================================ */
+/* TEXTOS DE ADVERTENCIA (Anulaciones y Normas) */
 .advertencia {
     color: #e11d48; /* Un rojo intenso y moderno */
     font-style: italic; /* Cursiva */
@@ -818,9 +785,7 @@ button a {
     border-left: 4px solid #e11d48; /* Una línea roja a la izquierda */
 }
 
-/* ============================================
-   ARREGLOS ESPECÍFICOS: CONFIRMACIÓN DE RESERVA
-   ============================================ */
+/* ARREGLOS ESPECÍFICOS: CONFIRMACIÓN DE RESERVA */
 
 /* 1. Centrar los títulos principales ("Pista 1", "Jugadores...", etc.) */
 #infopista h3, #infohorario h3, #infoestados h3, #jugadoresreserva h3, #inscripcion h3 {
@@ -904,9 +869,7 @@ button a {
     justify-content: center;
     align-items: center;
 }
-/* ============================================
-   9. RANKING DE JUGADORES (DISEÑO PREMIUM)
-   ============================================ */
+/* 9. RANKING DE JUGADORES (DISEÑO PREMIUM) */
 
 .contenedor-jugadores {
     margin-top: 20px;
@@ -1066,9 +1029,7 @@ button a {
     .info-derecha { text-align: center; }
 }
 
-/* ========================================================
-   📱 RESPONSIVE GLOBAL (TABLETS Y MÓVILES)
-   ======================================================== */
+/* 📱 RESPONSIVE GLOBAL (TABLETS Y MÓVILES)*/
 
 /* --- TABLET (769px a 1024px) --- */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1157,9 +1118,7 @@ button a {
     .columna { width: 100% !important; padding: 10px 0 !important; }
 }
 
-/* ============================================
-   SECCIÓN DE NOTICIAS DE LA API (INICIO.PHP)
-   ============================================ */
+/* SECCIÓN DE NOTICIAS DE LA API (INICIO.PHP) */
 .grid-noticias {
     display: grid !important;
     /* Esto hace la magia del responsive: si hay espacio caben 4, si no, se van bajando a la fila de abajo */
