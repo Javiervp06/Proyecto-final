@@ -139,7 +139,7 @@ $nombre_completo_admin = $datos_admin['nombre'] . " " . $datos_admin['apellidos'
                     </div>
                     <div>
                         <label for="telefono"><div class="asterisco">*</div> Teléfono:</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Ej: 600123456" maxlength="9" pattern="[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        <input type="number" id="telefono" name="telefono" min="600000000" max="999999999" placeholder="Ej: 600123456" maxlength="9">
                     </div>
                     <div>
                         <label for="email"><div class="asterisco">*</div> Correo Electrónico:</label>

@@ -19,8 +19,8 @@ if (empty($mensaje)) $errores[] = "El mensaje es obligatorio.";
 
 if (empty($errores)) {
     try {
-        // 3. INSERCIÓN USANDO 'fecha_solicitud'
-        $sql = "INSERT INTO clases (nombre, email, telefono, mensaje, fecha_solicitud) VALUES (?, ?, ?, ?, NOW())";
+        // 3. INSERCIÓN USANDO 'fecha_solicitud' Y AÑADIENDO EL 'estado'
+        $sql = "INSERT INTO clases (nombre, email, telefono, mensaje, fecha_solicitud, estado) VALUES (?, ?, ?, ?, NOW(), 'Pendiente')";
         $stmt = $conexion->prepare($sql);
         
         if ($stmt) {
